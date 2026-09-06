@@ -1,0 +1,29 @@
+name: 自动同步 index.json
+
+# 作者只需编辑 models/<id>/<id>.yml（含 version 键），
+# 此工作流自动重写 index.json（新增/改版/删除全自动）
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'models/**'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 同步 index.json
+        run: python3 .github/sync_index.py
+
+      - name: 提交变更
+        run: |
+          git config user.name "Lengbanlist Bot"
+          git config user.email "bot@lengbanlist-models.local"
+          git add index.json
+          git diff --cached --quiet || git commit -m "chore: index.json 自动同步"
+          git push
