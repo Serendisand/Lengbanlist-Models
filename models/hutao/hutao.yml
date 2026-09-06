@@ -1,12 +1,6 @@
 # ============================================================
 # HuTao 角色风格模型
-# 来源: Lengbanlist-Models 仓库
-# 版本: 1.0.0 (已从 Java HuTao.java 迁移)
 # ============================================================
-# 注意: 这是「胡桃风格」,不是冒充角色本人。
-#       角色版权归 miHoYo / Cognosphere 所有。
-# ============================================================
-
 name: "HuTao"
 
 help:
@@ -28,7 +22,6 @@ help:
   - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
   - "§7  = §b/unwarn"
   - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出捣乱的玩家！"
-  - "§2✦ §b/setban <必填>玩家名/IP <必填>时间/forever/auto <必填>原因 §7- §3修改封禁时间，不守规矩就别怪胡桃无情！"
   - "§6§l◆ 查询信息"
   - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态，看看谁在捣乱！"
   - "§2✦ §b/lban history <必填>玩家名 §7- §3翻翻案底，让胡桃瞧瞧！"
@@ -42,26 +35,46 @@ help:
   - "§2✦ §b/lban sync §7- §3查看跨服同步状态，大家都同步了没有！"
   - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作，做错的事要擦掉哦~"
   - "§6§l◆ 模型管理"
-  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，试试别的风格吧！"
-  - "§2✦ §b/lban models refresh §7- §3从云端拉最新角色风格，胡桃家的新花样！"
-  - "§2✦ §b/lban models install <必填>模型ID §7- §3下载并安装模型到本地，收藏喜欢的风格！"
-  - "§2✦ §b/lban models pin <必填>模型ID §7- §3锁定本地模型，云端更新也碰不到！"
-  - "§2✦ §b/lban models unpin <必填>模型ID §7- §3解除锁定，让它跟随云端一起更新"
-  - "§2✦ §b/lban models list §7- §3看看本地装了多少风格，胡桃的衣柜有多大！"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
   - "§6§l◆ 杂项"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
   - "§2✦ §b/lban list §7- §3查看封禁名单，这些家伙真是麻烦！"
   - "§2✦ §b/lban list-mute §7- §3查看禁言列表，看看谁被胡桃禁言了！"
   - "§7  = §b/listmute"
   - "§2✦ §b/lban a §7- §3广播封禁人数，让大家都知道！"
   - "§2✦ §b/lban toggle §7- §3开关自动广播，想听就听不想听就关！"
   - "§2✦ §b/lban open §7- §3打开可视化操作界面！"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，试试别的风格吧！"
   - "§2✦ §b/lban reload §7- §3重新加载配置，说不定能发现新东西！"
   - "§2✦ §b/lban info §7- §3查看插件信息"
   - "§b╚══════════════════════════════════╝"
-  - "§2♡ 当前版本: {version} §7| §b模型: 胡桃风格 HuTao"
+  - "§2♡ 当前版本: {version} §7| §b模型: 胡桃 HuTao"
 
 messages:
-  toggle-broadcast: "§b胡桃说：§a自动广播已经 {enabled}！想听就听，不想听就关！"
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d胡桃的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被胡桃踢出服务器啦！
+    
+    §7原因: §f{reason}
+    
+    §d下次请遵守规则哦~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 胡桃说：§a{player} §e已被踢出！
+    §b原因: §f{reason}
+    §b维护往生堂的和平！§b(◕‿◕✿)
+  toggle-broadcast: "§b胡桃说：§a自动广播已经 {enabled}！ 想听就听，不想听就关！"
   reload-config: "§b胡桃说：§a配置重新加载完成！说不定能发现新东西！"
   add-ban: "§b胡桃说：§a{player} 已被封禁 {days}，原因是：{reason}！不守规矩，就别怪胡桃无情！"
   remove-ban: "§b胡桃说：§a{player} 已从封禁名单中移除。知错能改，就放过他们吧！"
@@ -71,23 +84,6 @@ messages:
   remove-ban-ip: "§b胡桃说：§aIP {ip} 的封禁已解除，放过他们吧！"
   add-warn: "§b胡桃说：§a玩家 {player} 已被警告，原因是：{reason}！警告三次将被自动封禁！"
   remove-warn: "§b胡桃说：§a玩家 {player} 的警告记录已移除。"
-  get-kick-message: |-
-    §b╔══════════════════════════╗
-    §b║   §d胡桃的驱逐通知  §b║
-    §b╠══════════════════════════╣
-    §d☠️ 你被胡桃踢出服务器啦！
-
-    §7原因: §f{reason}
-
-    §d下次请遵守规则哦~
-    §b╚══════════════════════════╝
-  on-kick-success: |-
-    §b✧ 胡桃说：§a{player} §e已被踢出！
-    §b原因: §f{reason}
-    §b维护往生堂的和平！§b(◕‿◕✿)
-  history-empty: "§b胡桃说：§a{player} 是个乖孩子，没有任何案底哦！往生堂给他点赞~"
-  history-header: "§b胡桃说：§a让胡桃翻翻 {player} 的案底……哎呀，还挺有故事的嘛！"
-  history-entry-format: "{entry}"
   mute-command-blocked: "§b胡桃说：§c你还在禁言中哒！别想用命令，先安静待着吧~"
   warn-offline: "§b胡桃说：§a{player} 不在线哒，不过警告已经记上啦，原因是：{reason}！等他上线再好好说道说道~"
   pending-warnings-notice: "§b胡桃说：§e你有 {count} 条待处理警告哒！乖乖改正，不然往生堂要来找你玩咯~"
@@ -97,10 +93,14 @@ messages:
   no-alts: "§b胡桃说：§a{player} 没查出小号哒，是个老实人，往生堂给你点赞~"
   on-report-ban: "§b胡桃说：§a举报确认哒！{player} 已被封禁 {duration}！正义的铁拳从不迟到~"
   export-result: "§b胡桃说：§a审计日志导出完成哒，一共 {count} 条！往生堂的账本记得明明白白~"
-  verify-result-valid: "§b胡桃说：§a审计哈希链校验完整哒，一共 {count} 条，一个都没动过~"
-  verify-result-invalid: "§b胡桃说：§c糟了糟了！审计日志被动手脚哒！校验 {count} 条就发现了破绽，这可不行！"
   sync-status: "§b胡桃说：§e跨服同步状态：{detail}！各服务器都要乖乖听胡桃的指挥哒~"
   immunity-denied: "§b胡桃说：§c这位客人 {target} 权限不小，客卿我也动不了手呢~"
-  rollback-preview: "§b胡桃说：§e操作人 {actor} 在 {time} 共留下 {count} 条可以回滚的记录，要动手吗？"
+  rollback-preview: "§b胡桃说：§e操作人 {actor} 在 {time} 共留下 {matched} 条可以回滚的记录，要动手吗？"
   rollback-result: "§b胡桃说：§a回滚好啦！匹配 {matched} 条，办成 {executed} 条，跳过 {skipped} 条~"
   rollback-no-records: "§b胡桃说：§e{actor} 那段时间什么坏事都没干，找不到可回滚的记录哦~"
+  history-empty: "§b胡桃说：§a{player} 是个乖孩子，没有任何案底哦！往生堂给他点赞~"
+  history-header: "§b胡桃说：§a让胡桃翻翻 "
+  history-entry-format: "{entry}"
+  history-footer: "§b胡桃说：§7看完了吧？记得遵纪守法哦，不然往生堂随时欢迎~"
+  verify-result-valid: "§b胡桃说：§a审计哈希链校验完整哒，一共 {count} 条，一个都没动过~"
+  verify-result-invalid: "§b胡桃说：§c糟了糟了！审计日志被动手脚哒！校验 {count} 条就发现了破绽，这可不行！"

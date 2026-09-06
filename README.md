@@ -9,7 +9,7 @@
 - 角色版权归 [Cognosphere Pte. Ltd.](https://www.hoyoverse.com/) / miHoYo 等原版权方所有
 - 本项目与上述版权方**无任何隶属、赞助或官方合作关系**
 - 所有角色形象、台词、设定均来自原版权方公开发布的内容,使用已构成合理使用 (fair use)
-- 这些**只是消息风格** ("胡桃风格" 而非冒充胡桃本人)
+- 这些**只是消息风格** (`"胡桃风格"` 而非冒充胡桃本人)
 - 如版权方有任何异议,请通过 [issue](https://github.com/Serendisand/Lengbanlist-Models/issues) 联系,**会立即下架相关模型**
 
 These models are fan-made styling only — **NOT affiliated with miHoYo / HoYoverse / Cognosphere**.

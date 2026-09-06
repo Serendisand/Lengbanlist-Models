@@ -1,13 +1,106 @@
 # ============================================================
-# keqing 角色模型 — 占位（待迁移）
+# Keqing 角色风格模型
 # ============================================================
-# 此模型尚未从 Java 版本迁移。
-# 内置模型仍保留在 Lengbanlist 主 jar,可直接使用。
-# 本文件仅作为 index.json 的占位,插件加载时会回退到内置。
-
-name: "keqing"
+name: "Keqing"
 
 help:
-  - "§ckeqing 模型 - 占位,尚未迁移。/lban model keqing 仍可使用内置版本。"
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 刻晴风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁，不守规矩就封了！"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁，知错能改善莫大焉！"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址，刻晴绝不手软！"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家，让他们安静一会儿！"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，让他们继续说话吧！"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家，三次警告自动封禁！"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出不守规矩的玩家！"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态，刻晴办事效率第一！"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3调出处罚档案，一目了然！"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现违规行为？及时举报，刻晴会高效处理！"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址，看看谁在捣乱！"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志，刻晴办事效率第一！"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号，一个都别想跑！"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志，数据归档要快！"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性，杜绝数据造假！"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态，效率第一！"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作，及时纠错！"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§6§l◆ 杂项"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban list §7- §3查看封禁名单，刻晴办事效率第一！"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数，让大家都知道！"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播，想听就开不想听就关！"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，试试不同的风格吧！"
+  - "§2✦ §b/lban reload §7- §3重新加载配置，效率第一绝不拖沓！"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 刻晴 Keqing"
 
-messages: {}
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d刻晴的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被刻晴踢出服务器啦！
+    
+    §7原因: §f{reason}
+    
+    §d下次请遵守规则哦~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 刻晴说：§a{player} §e已被踢出！
+    §b原因: §f{reason}
+    §b效率第一，刻晴办事！§b(◕‿◕✿)
+  toggle-broadcast: "§b刻晴说：§a自动广播已经 {enabled}！ 让大家都知道规则的重要性！"
+  reload-config: "§b刻晴说：§a配置重新加载完成！效率第一，刻晴办事，绝不拖沓！"
+  add-ban: "§b刻晴说：§a{player} 已被封禁 {days}，原因是：{reason}！不守规矩，就别怪刻晴无情！"
+  remove-ban: "§b刻晴说：§a{player} 已从封禁名单中移除。知错能改，善莫大焉！"
+  add-mute: "§b刻晴说：§a{player} 已被禁言，原因是：{reason}！让他们安静一会儿吧！"
+  remove-mute: "§b刻晴说：§a{player} 的禁言已解除，可以继续说话了！"
+  add-ban-ip: "§b刻晴说：§aIP {ip} 已被封禁 {days}，原因是：{reason}！刻晴绝不手软！"
+  remove-ban-ip: "§b刻晴说：§aIP {ip} 的封禁已解除。知错能改，善莫大焉！"
+  add-warn: "§b刻晴说：§a玩家 {player} 已被警告，原因是：{reason}！警告三次将被自动封禁！"
+  remove-warn: "§b刻晴说：§a玩家 {player} 的警告记录已移除。"
+  mute-command-blocked: "§b刻晴说：§c禁言期间别想用命令！安静反省，效率为重，别浪费时间！"
+  warn-offline: "§b刻晴说：§a{player} 不在线，警告已直接记录！原因是：{reason}。等他上线，刻晴第一时间跟进！"
+  pending-warnings-notice: "§b刻晴说：§e注意！你有 {count} 条待处理警告，立刻整改，别再拖延！"
+  expiry-reminder: "§b刻晴说：§e提醒：{target} 的{type}还剩 {remaining} 到期！提前安排，别误了进度！"
+  escalated-ban: "§b刻晴说：§e{player} 第 {count} 次违规，系统自动升级封禁 {duration}！屡教不改，就该严办！"
+  alts-result: "§b刻晴说：§a查到了！{player} 有 {count} 个同IP小号，一个都别想蒙混过关！"
+  no-alts: "§b刻晴说：§a{player} 没有同IP小号，干净利落！"
+  on-report-ban: "§b刻晴说：§a举报确认，封禁 {player} {duration}！刻晴办事，绝不手软！"
+  export-result: "§b刻晴说：§a审计日志导出完成，共 {count} 条！归档完毕，随时可查！"
+  sync-status: "§b刻晴说：§e跨服同步状态：{detail}！数据一致才有效率，绝不能拖后腿！"
+  immunity-denied: "§b刻晴说：§c{target} 权限等级不低于你，这次行动不予批准。"
+  rollback-preview: "§b刻晴说：§e已核算完毕——操作人 {actor} 在 {time} 有 {matched} 条操作待回滚。"
+  rollback-result: "§b刻晴说：§a回滚完毕。匹配 {matched} 条，成功 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b刻晴说：§e{actor} 在该时间段没有留下可回滚的记录。"
+  history-empty: "§b刻晴说：§a系统查询完毕，{player} 档案清白，效率第一！"
+  history-header: "{entry}"
+  history-entry-format: "{entry}"
+  history-footer: "§b刻晴说：§7查询完毕，希望此人不要再给玉衡星添乱！"
+  verify-result-valid: "§b刻晴说：§a校验通过！共 {count} 条审计记录完整无损，效率与安全兼备！"
+  verify-result-invalid: "§b刻晴说：§c校验失败！审计日志被动了手脚，共 {count} 条记录，必须立刻彻查！"

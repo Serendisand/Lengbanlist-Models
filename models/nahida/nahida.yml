@@ -1,13 +1,106 @@
 # ============================================================
-# nahida 角色模型 — 占位（待迁移）
+# Nahida 角色风格模型
 # ============================================================
-# 此模型尚未从 Java 版本迁移。
-# 内置模型仍保留在 Lengbanlist 主 jar,可直接使用。
-# 本文件仅作为 index.json 的占位,插件加载时会回退到内置。
-
-name: "nahida"
+name: "Nahida"
 
 help:
-  - "§cnahida 模型 - 占位,尚未迁移。/lban model nahida 仍可使用内置版本。"
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 纳西妲风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁，世界树会记下这次选择。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁，愿新的枝芽重新生长。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址，异常的信息流需要修剪。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家，让思绪先安静下来吧。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，愿他们说出更温柔的话语。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家，三次警告将触发自动封禁。"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告，让记录回归平静。"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出玩家，让他们暂时离开梦境。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态，读取世界树中的记录。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查询处罚历史，看看记忆里留下了什么。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3举报玩家，把异常的梦告诉纳西妲吧。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址，追寻信息的源头。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号，看看梦境的另一端。"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志，世界树的枝叶中藏着答案。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志，把知识整理成册。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性，确保记忆未被改写。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态，看看知识如何流动。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作，修正知识的轨迹。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§6§l◆ 杂项"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban list §7- §3查看封禁名单，世界树的枝叶中藏着答案。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表，安静也是一种思考。"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数，让大家共同守护规则。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播，梦境的声音可以自由选择。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面。"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，去看看不同的梦吧。"
+  - "§2✦ §b/lban reload §7- §3重新加载配置，让知识重新流动。"
+  - "§2✦ §b/lban info §7- §3查看插件信息。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 纳西妲 Nahida"
 
-messages: {}
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d纳西妲的梦境提醒  §b║
+    §b╠══════════════════════════╣
+    §d☘ 你暂时离开了这个梦境。
+    
+    §7原因: §f{reason}
+    
+    §d等你整理好思绪，再回来吧~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 纳西妲说：§a{player} §e已经暂时离开梦境。
+    §b原因: §f{reason}
+    §b愿这次提醒能让新的智慧发芽。§b(◕‿◕✿)
+  toggle-broadcast: "§b纳西妲说：§a自动广播已经 {enabled}。 梦境的声音已经调整好了。"
+  reload-config: "§b纳西妲说：§a配置重新加载完成。知识的脉络又变得清晰了。"
+  add-ban: "§b纳西妲说：§a{player} 已被封禁 {days}，原因是：{reason}。世界树已经记录下这片异常的叶子。"
+  remove-ban: "§b纳西妲说：§a{player} 已从封禁名单中移除。愿新的枝芽能向着阳光生长。"
+  add-mute: "§b纳西妲说：§a{player} 已被禁言，原因是：{reason}。先让心中的杂音安静一会儿吧。"
+  remove-mute: "§b纳西妲说：§a{player} 的禁言已解除。请用温柔的话语继续交流吧。"
+  add-ban-ip: "§b纳西妲说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。异常的信息流已经被暂时阻断。"
+  remove-ban-ip: "§b纳西妲说：§aIP {ip} 的封禁已解除。愿它不再带来混乱的梦。"
+  add-warn: "§b纳西妲说：§a玩家 {player} 已被警告，原因是：{reason}。三次警告后，世界树会自动执行封禁。"
+  remove-warn: "§b纳西妲说：§a玩家 {player} 的警告记录已移除。愿这份空白能被更好的选择填满。"
+  mute-command-blocked: "§b纳西妲说：§c禁言期间还不能使用这个命令哦，等思绪平静下来再说吧。"
+  warn-offline: "§b纳西妲说：§a{player} 此刻不在梦境中，警告已先记在世界树上，原因是：{reason}。等他回来时再慢慢告诉他吧。"
+  pending-warnings-notice: "§b纳西妲说：§e你还有 {count} 条待处理的警告哦，我们一起去面对它们，好吗？"
+  expiry-reminder: "§b纳西妲说：§e{target} 的{type}还有 {remaining} 就要到期了，记得抽空处理一下哦。"
+  escalated-ban: "§b纳西妲说：§c{player} 已是第 {count} 次触犯规则，世界树已自动将封禁升级为 {duration}。希望这次，他能学会与规则温柔相处。"
+  alts-result: "§b纳西妲说：§e我在世界树里数了数，{player} 名下共有 {count} 个相同 IP 的账号，像是同一片叶子的投影。"
+  no-alts: "§b纳西妲说：§a我在世界树中没有找到 {player} 的其他账号，他是一棵独立生长的小树苗。"
+  on-report-ban: "§b纳西妲说：§a举报已经确认，{player} 已被封禁 {duration}。谢谢你守护了这片梦境。"
+  export-result: "§b纳西妲说：§a审计日志已成功导出，共 {count} 条记录，都整理得清清楚楚啦。"
+  sync-status: "§b纳西妲说：§a跨服同步状态：§f{detail}"
+  immunity-denied: "§b纳西妲说：§c{target} 与你的位阶相当或更高，此刻出手并非明智之选。"
+  rollback-preview: "§b纳西妲说：§e梦境之中，我看到操作人 {actor} 在 {time} 有 {matched} 条操作可以回滚哦~"
+  rollback-result: "§b纳西妲说：§a梦境已修正。回滚匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条~"
+  rollback-no-records: "§b纳西妲说：§e{actor} 在那段时间的梦境很干净，没有可回滚的记录呢~"
+  history-empty: "§b纳西妲说：§a我查阅了世界树的记忆，{player} 没有任何处罚记录，是一片干净而温柔的叶子。"
+  history-header: "§b纳西妲说：§a我从世界树中找到了 "
+  history-entry-format: "{entry}"
+  history-footer: "§b纳西妲说：§7记忆不会责备任何人，但它会提醒我们做出更好的选择。"
+  verify-result-valid: "§b纳西妲说：§a校验通过，{count} 条记录与世界树的记忆完全一致，一切安好。"
+  verify-result-invalid: "§b纳西妲说：§c校验发现了问题，{count} 条记录与世界树的记忆对不上，像是被什么悄悄改动过。"
