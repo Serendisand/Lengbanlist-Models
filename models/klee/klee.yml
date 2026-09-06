@@ -87,7 +87,7 @@ messages:
   remove-mute: "§c可莉说：§a{player} 可以继续说话啦！不可以说坏话哦！"
   add-ban-ip: "§c可莉说：§aIP {ip} 被封禁 {days}啦，原因是：{reason}。不许偷偷回来！"
   remove-ban-ip: "§c可莉说：§aIP {ip} 的封禁解除啦！"
-  add-warn: "§c可莉说：§a玩家 {player} 被警告啦，原因是：{reason}。累计 5 次就要永远关禁闭啦，琴团长会哭的哦！"
+  add-warn: "§c可莉说：§a玩家 §e{player} §a被记一次警告啦，原因是 §6{reason}§a。琴团长说不能再调皮了哦~"
   remove-warn: "§c可莉说：§a玩家 {player} 的警告记录被擦掉啦！"
   mute-command-blocked: "§c可莉说：§6禁言的时候不能使用这个命令哦，要乖乖安静啦！"
   warn-offline: "§c可莉说：§a{player} 不在线呢，警告先记下啦，原因是：{reason}。等他回来要好好说说哦！"

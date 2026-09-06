@@ -85,7 +85,7 @@ messages:
   remove-mute: "§b绫华说：§a{player} 的禁言已解除。给予机会，重新开始。"
   add-ban-ip: "§b绫华说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。维护秩序，不容破坏。"
   remove-ban-ip: "§b绫华说：§aIP {ip} 的封禁已解除。给予机会，重新开始。"
-  add-warn: "§b绫华说：§a玩家 {player} 已被警告，原因是：{reason}。警告三次将被自动封禁。"
+  add-warn: "§b绫华说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告。请不要再让社奉行为难了。"
   remove-warn: "§b绫华说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b绫华说：§c禁言期间无法使用该命令，还请您静心等候。"
   warn-offline: "§b绫华说：§a{player} 此刻不在线，警告已代为记下，原因是：{reason}。待他归来时请多加留意。"

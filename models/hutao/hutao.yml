@@ -84,7 +84,7 @@ messages:
   remove-mute: "§b胡桃说：§a{player} 的禁言已解除，可以继续说话了！"
   add-ban-ip: "§b胡桃说：§aIP {ip} 已被封禁 {days}，原因是：{reason}！别再捣乱了！"
   remove-ban-ip: "§b胡桃说：§aIP {ip} 的封禁已解除，放过他们吧！"
-  add-warn: "§b胡桃说：§a玩家 {player} 已被警告，原因是：{reason}！警告累计 5 条就被往生堂永久请去喝茶~"
+  add-warn: "§b胡桃说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告！别再给往生堂添生意了哦~"
   remove-warn: "§b胡桃说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b胡桃说：§c你还在禁言中哒！别想用命令，先安静待着吧~"
   warn-offline: "§b胡桃说：§a{player} 不在线哒，不过警告已经记上啦，原因是：{reason}！等他上线再好好说道说道~"

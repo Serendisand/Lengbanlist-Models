@@ -84,7 +84,7 @@ messages:
   remove-mute: "§b芙宁娜说：§a{player} 的禁言已解除，可以继续说话啦！"
   add-ban-ip: "§b芙宁娜说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。别再划水啦！"
   remove-ban-ip: "§b芙宁娜说：§aIP {ip} 的封禁已解除，给他们一个机会！"
-  add-warn: "§b芙宁娜说：§a玩家 {player} 已被警告，原因是：{reason}！累计 5 次警告，本水神只好请你永久退场！"
+  add-warn: "§b芙宁娜说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告！请不要再让本水神失望了~"
   remove-warn: "§b芙宁娜说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b芙宁娜说：§c禁言期间还想动用命令？本水神的舞台，不欢迎不守规矩的观众！"
   warn-offline: "§b芙宁娜说：§a{player} 竟敢缺席，不过本水神的警告已然送达，原因是：{reason}。待他归来，再上演一场好戏吧！"

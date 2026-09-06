@@ -85,7 +85,7 @@ messages:
   remove-mute: "§b黑塔说：§a玩家 {player} 的禁言已解除，可以继续说话了。"
   add-ban-ip: "§b黑塔说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。正义不容挑战！"
   remove-ban-ip: "§b黑塔说：§aIP {ip} 的封禁已解除。给予机会，重新开始。"
-  add-warn: "§b黑塔说：§a玩家 {player} 已被警告，原因是：{reason}。5 次即永久封存数据，正义从不打折。"
+  add-warn: "§b黑塔说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告。数据已记录，正义从不打折。"
   remove-warn: "§b黑塔说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b黑塔说：§c禁言期间不能使用该命令，这种蠢问题也要来打扰天才？"
   warn-offline: "§b黑塔说：§a玩家 {player} 不在线，但警告已记录在案，原因是：{reason}。想逃出天才的视野？还早着呢。"

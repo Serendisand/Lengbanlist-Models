@@ -87,7 +87,7 @@ messages:
   remove-mute: "§d八重神子说：§a{player} 的禁言已解除。希望接下来的台词能有趣些。"
   add-ban-ip: "§d八重神子说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。小狐狸的眼睛可是很尖的哦。"
   remove-ban-ip: "§d八重神子说：§aIP {ip} 的封禁已解除。"
-  add-warn: "§d八重神子说：§a玩家 {player} 已被警告，原因是：{reason}。再来一次，这出戏就要写上永久结局了哦。"
+  add-warn: "§d八重神子说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告哦。这出戏请好好演，别再让神子失望了~"
   remove-warn: "§d八重神子说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§d八重神子说：§c禁言期间不能使用该命令呢。现在还是乖乖当个听众，比较有趣哦。"
   warn-offline: "§d八重神子说：§a{player} 不在线呢，不过警告已经记下了，原因是：{reason}。等他上线，这故事还没讲完哦。"

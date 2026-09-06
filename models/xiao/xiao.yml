@@ -85,7 +85,7 @@ messages:
   remove-mute: "§b魈说：§a{player} 的禁言已解除，可以继续说话了！"
   add-ban-ip: "§b魈说：§aIP {ip} 已被封禁 {days}，原因是：{reason}！别再捣乱了！"
   remove-ban-ip: "§b魈说：§aIP {ip} 的封禁已解除，放过他们吧！"
-  add-warn: "§b魈说：§a玩家 {player} 已被警告，原因是：{reason}！累 5 次业障，将被永久清除出璃月。"
+  add-warn: "§b魈说：§a玩家 §e{player} §a因 §6{reason} §a被记一次业障。业障缠身，请及时回头。"
   remove-warn: "§b魈说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b魈说：§c禁言期间不能使用该命令。安静待着，别添乱。"
   warn-offline: "§b魈说：§a{player} 不在线，警告已记下，原因是：{reason}。等他回来再算账！"

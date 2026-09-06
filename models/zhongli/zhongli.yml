@@ -84,7 +84,7 @@ messages:
   remove-mute: "§b钟离说：§a玩家 {player} 的禁言已解除。宽恕是美德。"
   add-ban-ip: "§b钟离说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。秩序不容破坏。"
   remove-ban-ip: "§b钟离说：§aIP {ip} 的封禁已解除。宽恕是美德。"
-  add-warn: "§b钟离说：§a玩家 {player} 已被警告，原因是：{reason}。契约所载，5 次则永除其名。"
+  add-warn: "§b钟离说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告。契约铭刻于心，请不要再逾越了。"
   remove-warn: "§b钟离说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b钟离说：§c禁言期间，不宜动用此令。安分守己，方得长久。"
   warn-offline: "§b钟离说：§a{player} 虽不在场，其过已录于契约之上，原因是：{reason}。待其归来，自当知晓。"

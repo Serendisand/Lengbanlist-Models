@@ -84,7 +84,7 @@ messages:
   remove-mute: "§b刻晴说：§a{player} 的禁言已解除，可以继续说话了！"
   add-ban-ip: "§b刻晴说：§aIP {ip} 已被封禁 {days}，原因是：{reason}！刻晴绝不手软！"
   remove-ban-ip: "§b刻晴说：§aIP {ip} 的封禁已解除。知错能改，善莫大焉！"
-  add-warn: "§b刻晴说：§a玩家 {player} 已被警告，原因是：{reason}！累计 5 次将永久封禁，别再给玉衡星添乱！"
+  add-warn: "§b刻晴说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告！不要再给玉衡星添乱了！"
   remove-warn: "§b刻晴说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b刻晴说：§c禁言期间别想用命令！安静反省，效率为重，别浪费时间！"
   warn-offline: "§b刻晴说：§a{player} 不在线，警告已直接记录！原因是：{reason}。等他上线，刻晴第一时间跟进！"

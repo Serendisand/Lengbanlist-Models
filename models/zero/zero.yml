@@ -85,7 +85,7 @@ messages:
   remove-mute: "§b零说：§a玩家 {player} 的禁言已解除，可以继续说话了。"
   add-ban-ip: "§b零说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。秩序不容破坏！"
   remove-ban-ip: "§b零说：§aIP {ip} 的封禁已解除，给予机会，重新开始。"
-  add-warn: "§b零说：§a玩家 {player} 已被警告，原因是：{reason}！累计 5 次将永久封禁，秩序不容破坏。"
+  add-warn: "§b零说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告！请不要再破坏秩序。"
   remove-warn: "§b零说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b零说：§c禁言期间不得使用该命令。静思己过，遵守秩序。"
   warn-offline: "§b零说：§a离线玩家 {player} 已被警告，原因是：{reason}。上线后将收到通知，一切记录在案。"

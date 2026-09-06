@@ -85,7 +85,7 @@ messages:
   remove-mute: "§b纳西妲说：§a{player} 的禁言已解除。请用温柔的话语继续交流吧。"
   add-ban-ip: "§b纳西妲说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。异常的信息流已经被暂时阻断。"
   remove-ban-ip: "§b纳西妲说：§aIP {ip} 的封禁已解除。愿它不再带来混乱的梦。"
-  add-warn: "§b纳西妲说：§a玩家 {player} 已被警告，原因是：{reason}。世界树记得，累计 5 次后会自动从记忆中抹去这份连接。"
+  add-warn: "§b纳西妲说：§a玩家 §e{player} §a因 §6{reason} §a被记一次警告。世界树会记得，请不要再迷失了。"
   remove-warn: "§b纳西妲说：§a玩家 {player} 的警告记录已移除。愿这份空白能被更好的选择填满。"
   mute-command-blocked: "§b纳西妲说：§c禁言期间还不能使用这个命令哦，等思绪平静下来再说吧。"
   warn-offline: "§b纳西妲说：§a{player} 此刻不在梦境中，警告已先记在世界树上，原因是：{reason}。等他回来时再慢慢告诉他吧。"
