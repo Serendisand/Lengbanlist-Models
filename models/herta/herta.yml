@@ -2,7 +2,7 @@
 # Herta 角色风格模型
 # ============================================================
 name: "Herta"
-version: "1.0.0"
+version: "1.0.1"
 
 help:
   - "§b╔══════════════════════════════════╗"
@@ -18,7 +18,7 @@ help:
   - "§7  = §b/mute"
   - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，给予机会。"
   - "§7  = §b/unmute"
-  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家，三次警告自动封禁！"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 天，5 次→永久黑塔数据封存！）"
   - "§7  = §b/warn"
   - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
   - "§7  = §b/unwarn"
@@ -44,6 +44,7 @@ help:
   - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
   - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
   - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型"
   - "§6§l◆ 杂项"
   - "§2✦ §b/lban list §7- §3查看封禁名单，黑塔的正义不容挑战！"
   - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
@@ -54,6 +55,10 @@ help:
   - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，体验不同的风格。"
   - "§2✦ §b/lban reload §7- §3重新加载配置，确保一切正常运行。"
   - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报，黑塔亲自结案。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封期。"
   - "§b╚══════════════════════════════════╝"
   - "§2♡ 当前版本: {version} §7| §b模型: 黑塔 Herta"
 
@@ -80,7 +85,7 @@ messages:
   remove-mute: "§b黑塔说：§a玩家 {player} 的禁言已解除，可以继续说话了。"
   add-ban-ip: "§b黑塔说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。正义不容挑战！"
   remove-ban-ip: "§b黑塔说：§aIP {ip} 的封禁已解除。给予机会，重新开始。"
-  add-warn: "§b黑塔说：§a玩家 {player} 已被警告，原因是：{reason}。警告三次将被自动封禁！"
+  add-warn: "§b黑塔说：§a玩家 {player} 已被警告，原因是：{reason}。5 次即永久封存数据，正义从不打折。"
   remove-warn: "§b黑塔说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b黑塔说：§c禁言期间不能使用该命令，这种蠢问题也要来打扰天才？"
   warn-offline: "§b黑塔说：§a玩家 {player} 不在线，但警告已记录在案，原因是：{reason}。想逃出天才的视野？还早着呢。"

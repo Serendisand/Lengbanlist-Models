@@ -2,7 +2,7 @@
 # Zero 角色风格模型
 # ============================================================
 name: "Zero"
-version: "1.0.0"
+version: "1.0.1"
 
 help:
   - "§b╔══════════════════════════════════╗"
@@ -18,7 +18,7 @@ help:
   - "§7  = §b/mute"
   - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，给予机会。"
   - "§7  = §b/unmute"
-  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家，三次警告自动封禁！"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 天，5 次→永久秩序封禁）"
   - "§7  = §b/warn"
   - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
   - "§7  = §b/unwarn"
@@ -44,6 +44,7 @@ help:
   - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
   - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
   - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型"
   - "§6§l◆ 杂项"
   - "§2✦ §b/lban list §7- §3查看封禁名单，零的秩序不容破坏！"
   - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
@@ -54,6 +55,10 @@ help:
   - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，体验不同的风格。"
   - "§2✦ §b/lban reload §7- §3重新加载配置，确保一切正常运行。"
   - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报，秩序归档。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至其身边。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订秩序。"
   - "§b╚══════════════════════════════════╝"
   - "§2♡ 当前版本: {version} §7| §b模型: 零 Zero"
 
@@ -80,7 +85,7 @@ messages:
   remove-mute: "§b零说：§a玩家 {player} 的禁言已解除，可以继续说话了。"
   add-ban-ip: "§b零说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。秩序不容破坏！"
   remove-ban-ip: "§b零说：§aIP {ip} 的封禁已解除，给予机会，重新开始。"
-  add-warn: "§b零说：§a玩家 {player} 已被警告，原因是：{reason}！警告三次将被自动封禁！"
+  add-warn: "§b零说：§a玩家 {player} 已被警告，原因是：{reason}！累计 5 次将永久封禁，秩序不容破坏。"
   remove-warn: "§b零说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b零说：§c禁言期间不得使用该命令。静思己过，遵守秩序。"
   warn-offline: "§b零说：§a离线玩家 {player} 已被警告，原因是：{reason}。上线后将收到通知，一切记录在案。"

@@ -2,7 +2,7 @@
 # Zhongli 角色风格模型
 # ============================================================
 name: "Zhongli"
-version: "1.0.0"
+version: "1.0.1"
 
 help:
   - "§b╔══════════════════════════════════╗"
@@ -18,7 +18,7 @@ help:
   - "§7  = §b/mute"
   - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，宽恕是美德。"
   - "§7  = §b/unmute"
-  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家，三次警告自动封禁。"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（LBAC：4 次→14 日，5 次→永封）"
   - "§7  = §b/warn"
   - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
   - "§7  = §b/unwarn"
@@ -44,6 +44,7 @@ help:
   - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
   - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
   - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型，诸神之中亦有当令之星。"
   - "§6§l◆ 杂项"
   - "§2✦ §b/lban list §7- §3查看封禁名单，一切尽在掌控。"
   - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
@@ -51,9 +52,12 @@ help:
   - "§2✦ §b/lban a §7- §3广播封禁人数，维护秩序。"
   - "§2✦ §b/lban toggle §7- §3开关自动广播，一切尽在掌控。"
   - "§2✦ §b/lban open §7- §3打开可视化操作界面"
-  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型，体验不同的风格。"
   - "§2✦ §b/lban reload §7- §3重新加载配置，确保一切完美无缺。"
   - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报，依契约之约审结。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板，总揽契约未尽之事务。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边，赴约如赴宴。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订契约封期。"
   - "§b╚══════════════════════════════════╝"
   - "§2♡ 当前版本: {version} §7| §b模型: 钟离 Zhongli"
 
@@ -80,7 +84,7 @@ messages:
   remove-mute: "§b钟离说：§a玩家 {player} 的禁言已解除。宽恕是美德。"
   add-ban-ip: "§b钟离说：§aIP {ip} 已被封禁 {days}，原因是：{reason}。秩序不容破坏。"
   remove-ban-ip: "§b钟离说：§aIP {ip} 的封禁已解除。宽恕是美德。"
-  add-warn: "§b钟离说：§a玩家 {player} 已被警告，原因是：{reason}。警告三次将被自动封禁。"
+  add-warn: "§b钟离说：§a玩家 {player} 已被警告，原因是：{reason}。契约所载，5 次则永除其名。"
   remove-warn: "§b钟离说：§a玩家 {player} 的警告记录已移除。"
   mute-command-blocked: "§b钟离说：§c禁言期间，不宜动用此令。安分守己，方得长久。"
   warn-offline: "§b钟离说：§a{player} 虽不在场，其过已录于契约之上，原因是：{reason}。待其归来，自当知晓。"
