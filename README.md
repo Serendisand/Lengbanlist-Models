@@ -16,6 +16,13 @@ These models are fan-made styling only — **NOT affiliated with miHoYo / HoYove
 
 ---
 
+## 📊 月度精选自动评选
+
+搭建统计聚合端点即可让每月精选 = 上月被最多服务器采纳的模型（免费方案 + 完整代码）:
+[部署教程](docs/aggregation-endpoint.md)
+
+---
+
 ## 用法 (服务器管理员)
 
 Lengbanlist 插件内置 `/lban models` 命令集:
