@@ -1,0 +1,108 @@
+# ============================================================
+# Escoffier 角色风格模型
+# ============================================================
+name: "Escoffier"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 爱可菲风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁。这道菜，退回重做。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁。重新上桌吧，别让我失望。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址。整间厨房都要停业整顿。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家。厨房里不需要多余的杂音。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言。可以开口了，说重点。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，配方里没有第三次机会）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出不合格的客人。请离开我的厨房。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态。让我看看这份食材新不新鲜。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录。这是你的成绩单。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现劣质食材？报上来，我亲自验。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志。每一道工序都要留档。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号。同一批进货，瞒不过我。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志。装盘，封存。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性。分量差一克，我都能尝出来。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态。分店之间，配方必须一致。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作。倒掉重来，别心疼。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型。本月的主打菜。"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单。一桌退单的客人。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数。向全场通报。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播。随时可以关。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置。配方更新，重新备料。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报。我会亲自品鉴这份证据。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。待处理的订单都在这儿。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。我亲自去看看现场。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限。火候由我掌控。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 爱可菲 Escoffier"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d爱可菲的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被爱可菲请出了厨房
+
+    §7原因: §f{reason}
+
+    §d不合格的客人，恕不接待。
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 爱可菲说：§a{player} §e已被退单。
+    §b原因: §f{reason}
+    §b厨房需要秩序。§b(◕‿◕✿)
+  toggle-broadcast: "§b爱可菲说：§a自动广播已 {enabled}。就这样。"
+  reload-config: "§b爱可菲说：§a配置重载完成。重新备料，从头开始。"
+  add-ban: "§b爱可菲说：§a{player} 封禁 {days}。理由：{reason}。这道菜不合格，撤下去。"
+  remove-ban: "§b爱可菲说：§a{player} 解封了。重新上桌，希望这次能入口。"
+  add-mute: "§b爱可菲说：§a{player} 已被禁言。理由：{reason}。厨房需要安静。"
+  remove-mute: "§b爱可菲说：§a{player} 的禁言解除了。说吧，简洁一点。"
+  add-ban-ip: "§b爱可菲说：§aIP {ip} 封禁 {days}。理由：{reason}。整条供货链都不干净。"
+  remove-ban-ip: "§b爱可菲说：§aIP {ip} 解封。换一批货吧。"
+  add-warn: "§b爱可菲说：§a{player}，因 §6{reason} §a记一次警告。配方上写得很清楚，没有下一次。"
+  remove-warn: "§b爱可菲说：§a{player} 的警告已抹去。这一笔，我不追究了。"
+  mute-command-blocked: "§c禁言期间，你无权发言。"
+  warn-offline: "§b爱可菲说：§a{player} 不在场。理由：{reason}。记录照记，与人到不到场无关。"
+  pending-warnings-notice: "§b爱可菲说：§e你还有 {count} 条警告。清干净之前，别再让我看见你。"
+  expiry-reminder: "§b爱可菲说：§e{target} 的{type}还剩 {remaining}。到点了会自动出锅。"
+  escalated-ban: "§b爱可菲说：§e第 {count} 次违规。按既定配方，自动升级为 {duration}。"
+  alts-result: "§b爱可菲说：§a{player} 名下查出 {count} 个同 IP 账号。同一批货，味道都一样。"
+  no-alts: "§b爱可菲说：§a{player} 名下没有同 IP 账号。干净。"
+  on-report-ban: "§b爱可菲说：§a举报已核实。{player} 封禁 {duration}。证据很足，我认可。"
+  export-result: "§b爱可菲说：§a{count} 条审计记录已导出装盘。"
+  sync-status: "§b爱可菲说：§e跨服同步状态：{detail}。各分店配方一致，才叫专业。"
+  immunity-denied: "§b爱可菲说：§c{target} 的权限在你之上。这道菜不归你管。"
+  rollback-preview: "§b爱可菲说：§e{actor} 在 {time} 留下了 {count} 条可回滚记录。要倒掉重做吗？"
+  rollback-result: "§b爱可菲说：§a重做完成。匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b爱可菲说：§e那段时间，{actor} 没留下任何东西。"
+  history-empty: "§b爱可菲说：§a{player} 的记录是空的。到目前为止，还算合格。"
+  history-header: "§b爱可菲说：§a这是你的成绩单——"
+  history-entry-format: "{entry}"
+  history-footer: "§b爱可菲说：§7都看完了。下次别再让我填新的。"
+  verify-result-valid: "§b爱可菲说：§a哈希链校验通过，{count} 条，分毫不差。"
+  verify-result-invalid: "§b爱可菲说：§c校验失败。{count} 条记录被人动过。谁碰的，自己站出来。"

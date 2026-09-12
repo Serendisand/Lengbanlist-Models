@@ -1,0 +1,108 @@
+# ============================================================
+# Columbina 角色风格模型
+# ============================================================
+name: "Columbina"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 哥伦比娅风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁，让他做个长长的梦吧～"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁，梦该醒啦～"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址，让这一整片都安静下来呢～"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家，嘘——别吵醒大家哦～"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，可以说话啦～"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，晚安哦～）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出不守规矩的玩家，去别处做梦吧～"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态，看看谁还在梦里呢～"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查阅梦境记录，我全都记得哦～"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现破坏秩序的行为？说给我听听呀～"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志，都是些不会醒的故事呢～"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号，影子总待在一起呢～"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志，收进梦里～"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性，谁也别想偷偷改哦～"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态，梦与梦是相连的～"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作，把做错的梦轻轻揉掉～"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型，这个月最甜的梦～"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单，大家都睡着呢～"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数，让所有人都听见这支摇篮曲～"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播，想听吗～"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置，再做一个梦吧～"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报，我会好好听的哦～"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板，好多故事等着我呢～"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边，来陪你一起睡～"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限，梦有多长由我定～"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 哥伦比娅 Columbina"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d哥伦比娅的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被哥伦比娅踢出服务器啦～
+
+    §7原因: §f{reason}
+
+    §d困了就好好睡一觉吧，晚安哦~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 哥伦比娅说：§a{player} §e已经睡着啦～
+    §b原因: §f{reason}
+    §b做个好梦哦~§b(◕‿◕✿)
+  toggle-broadcast: "§b哥伦比娅说：§a自动广播已经 {enabled}。要不要听着它入睡呢～"
+  reload-config: "§b哥伦比娅说：§a配置重新加载完成啦。梦境又翻新了一遍呢～"
+  add-ban: "§b哥伦比娅说：§a{player} 要睡上 {days} 了，原因是：{reason}。别担心，会做梦的哦～"
+  remove-ban: "§b哥伦比娅说：§a{player} 的梦醒啦～该说早安了。"
+  add-mute: "§b哥伦比娅说：§a{player} 的声音被收起来了，原因是：{reason}。安静一点，梦才甜嘛～"
+  remove-mute: "§b哥伦比娅说：§a{player} 的声音还回去了哦～"
+  add-ban-ip: "§b哥伦比娅说：§a{ip} 这一整片都要睡下啦，{days}，原因是：{reason}。整片都安静了呢～"
+  remove-ban-ip: "§b哥伦比娅说：§a{ip} 醒了哦～天亮了。"
+  add-warn: "§b哥伦比娅说：§a{player} 呀，因为 §6{reason} §a被记下了一次。再犯的话…就睡得更久一点哦～"
+  remove-warn: "§b哥伦比娅说：§a{player} 的那一页，我撕掉了哦～"
+  mute-command-blocked: "§b哥伦比娅说：§c嘘——你现在不能说话呢。安静地待一会儿吧～"
+  warn-offline: "§b哥伦比娅说：§a{player} 虽然不在，但他做了什么我都看着哦，原因是：{reason}。等他回来就告诉他～"
+  pending-warnings-notice: "§b哥伦比娅说：§e你还欠着 {count} 次没还呢。还清了，才能睡个安稳觉哦～"
+  expiry-reminder: "§b哥伦比娅说：§e关于 {target} 的{type}，只剩 {remaining} 了哦。梦快到头啦，要醒了吗～"
+  escalated-ban: "§b哥伦比娅说：§e{player} 已经是第 {count} 次了呢。这次就睡 {duration} 吧，反正你也不想醒～"
+  alts-result: "§b哥伦比娅说：§a{player} 身后站着 {count} 个影子呢。影子从来都躲不掉的哦～"
+  no-alts: "§b哥伦比娅说：§a{player} 身后空空的，一个影子也没有呢。真干净～"
+  on-report-ban: "§b哥伦比娅说：§a有人把 {player} 的事说给我听了，那就睡 {duration} 吧。我听得可认真了～"
+  export-result: "§b哥伦比娅说：§a把 {count} 条都收进梦里了，谁也拿不走哦～"
+  sync-status: "§b哥伦比娅说：§e跨服同步状态：{detail}。梦和梦，本来就是连在一起的呀～"
+  immunity-denied: "§b哥伦比娅说：§c{target} 的位置在你之上呢。打扰别人的梦，可不太好哦～"
+  rollback-preview: "§b哥伦比娅说：§e我看到啦——{actor} 在 {time} 留下了 {count} 条可以揉掉的痕迹呢～"
+  rollback-result: "§b哥伦比娅说：§a揉掉啦～匹配 {matched} 条，改了 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b哥伦比娅说：§e{actor} 在那段时间什么都没做过哦。空空的，像没做过梦一样～"
+  history-empty: "§b哥伦比娅说：§a{player} 的梦里干干净净的，一条坏记录都没有呢～"
+  history-header: "§b哥伦比娅说：§a让我看看 "
+  history-entry-format: "{entry}"
+  history-footer: "§b哥伦比娅说：§7一页一页都看完了哦。好好睡吧，别再做坏事啦～"
+  verify-result-valid: "§b哥伦比娅说：§a{count} 条全都对得上呢，谁也没动过。真乖～"
+  verify-result-invalid: "§b哥伦比娅说：§c{count} 条里有被人偷偷改过的痕迹哦…是谁呢？我会慢慢找出来的～"

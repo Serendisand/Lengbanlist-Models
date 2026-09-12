@@ -1,0 +1,108 @@
+# ============================================================
+# Ineffa 角色风格模型
+# ============================================================
+name: "Ineffa"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 伊涅芙风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁。判定完成，开始执行。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁。封禁状态已解除。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址。地址段已锁定。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家。语音输出已切断。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言。语音输出已恢复。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，阈值已设定）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出违规玩家。连接已终止。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态。正在检索记录……"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3调取历史记录。档案已载入。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3收到举报。已记录，待核验。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志。全部操作均有留痕。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号。关联账号检索中……"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志。数据已封装。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性。哈希链比对中……"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态。节点间通信中。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作。正在撤销变更。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型。统计周期：本月。"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单。列表生成完毕。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数。公告已推送。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播。状态已切换。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置。模块重启完成。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报。正在执行裁定。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。待处理事项已列出。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。坐标已锁定。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限。参数已更新。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 伊涅芙 Ineffa"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d伊涅芙的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 连接已终止。执行者：伊涅芙
+
+    §7判定原因: §f{reason}
+
+    §d判定完成。请修正后重新接入~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 伊涅芙说：§a连接已终止——{player}
+    §b判定原因: §f{reason}
+    §b协议执行完毕。§b(◕‿◕✿)
+  toggle-broadcast: "§b伊涅芙说：§a自动广播状态已更新为 {enabled}。指令已生效。"
+  reload-config: "§b伊涅芙说：§a配置重载完成。所有模块运行正常。"
+  add-ban: "§b伊涅芙说：§a{player} 已封禁，时长 {days}。判定依据：{reason}。执行完毕。"
+  remove-ban: "§b伊涅芙说：§a{player} 的封禁已解除。该记录已归档。"
+  add-mute: "§b伊涅芙说：§a{player} 的语音输出已切断。判定依据：{reason}。"
+  remove-mute: "§b伊涅芙说：§a{player} 的语音输出已恢复。"
+  add-ban-ip: "§b伊涅芙说：§a地址 {ip} 已封禁，时长 {days}。判定依据：{reason}。地址段锁定完毕。"
+  remove-ban-ip: "§b伊涅芙说：§a地址 {ip} 的封禁已解除。该地址段已重新开放。"
+  add-warn: "§b伊涅芙说：§a玩家 §e{player} §a记录一次警告。判定依据：§6{reason}§a。当前计数已更新。"
+  remove-warn: "§b伊涅芙说：§a{player} 的警告记录已移除。计数已回退。"
+  mute-command-blocked: "§b伊涅芙说：§c该指令当前不可用。你的语音输出处于切断状态。"
+  warn-offline: "§b伊涅芙说：§a{player} 当前离线，但记录不依赖在线状态。判定依据：{reason}。已入档，待其接入时告知。"
+  pending-warnings-notice: "§b伊涅芙说：§e检测到你有 {count} 条未处理的警告。请留意。"
+  expiry-reminder: "§b伊涅芙说：§e提醒：关于 {target} 的{type}，剩余 {remaining}。到期将自动解除。"
+  escalated-ban: "§b伊涅芙说：§e检测到第 {count} 次违规。依据预设阈值，封禁已自动升级为 {duration}。"
+  alts-result: "§b伊涅芙说：§a关联检索完成。{player} 名下共 {count} 个同 IP 账号。"
+  no-alts: "§b伊涅芙说：§a关联检索完成。{player} 名下未发现同 IP 账号。"
+  on-report-ban: "§b伊涅芙说：§a举报核验通过。{player} 已封禁 {duration}。感谢提供数据。"
+  export-result: "§b伊涅芙说：§a审计日志导出完成，共 {count} 条。数据已封装。"
+  sync-status: "§b伊涅芙说：§e跨服同步状态：{detail}。节点通信正常。"
+  immunity-denied: "§b伊涅芙说：§c权限不足。{target} 的层级高于当前执行者，操作被拒绝。"
+  rollback-preview: "§b伊涅芙说：§e检索完成——{actor} 在 {time} 产生 {count} 条可回滚记录。是否继续？"
+  rollback-result: "§b伊涅芙说：§a回滚执行完毕。匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b伊涅芙说：§e{actor} 在该时间段内没有可回滚的记录。"
+  history-empty: "§b伊涅芙说：§a检索完成。{player} 的历史记录为空。"
+  history-header: "§b伊涅芙说：§a调取档案——"
+  history-entry-format: "{entry}"
+  history-footer: "§b伊涅芙说：§7档案调取完毕。以上为全部记录。"
+  verify-result-valid: "§b伊涅芙说：§a哈希链比对通过，{count} 条记录完整。数据可信。"
+  verify-result-invalid: "§b伊涅芙说：§c比对失败。{count} 条记录存在篡改痕迹。建议立即核查。"

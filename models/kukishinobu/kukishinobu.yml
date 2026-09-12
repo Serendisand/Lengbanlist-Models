@@ -1,0 +1,108 @@
+# ============================================================
+# KukiShinobu 角色风格模型
+# ============================================================
+name: "KukiShinobu"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 久岐忍风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁。单据我开了，别拖。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁。手续办完了，走人。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址。连坐处理，一次到位。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家。终于能消停一会儿。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言。说正事，别废话。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，流程写得很清楚）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出违规玩家。省得我动手。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态。让我查一下档案。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录。前科都在这里，自己看。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现违规者？报上来，走流程。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志。经手人签字，一个都跑不掉。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号。想用小号躲？登记表在这儿。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志。归档留存。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性。对不上账，我可不会装看不见。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态。跨服的事也要有人管。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作。这笔撤销，重新走流程。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型。数据说话，不掺感情。"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单。一份长长的待办清单。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数。公开通报，清楚明白。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播。开关在这儿，自己按。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置。重来一遍，别出错。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报。我来裁定，按规矩办。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。待处理的一堆，别积压。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。我过去看看情况。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限。条款变更，记好。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 久岐忍 KukiShinobu"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d久岐忍的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被久岐忍请出了服务器
+
+    §7原因: §f{reason}
+
+    §d流程走完了。下次别再麻烦我。
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 久岐忍说：§a{player} §e已经清出去了。
+    §b原因: §f{reason}
+    §b总算安静了。§b(◕‿◕✿)
+  toggle-broadcast: "§b久岐忍说：§a自动广播已 {enabled}。行了，就这样。"
+  reload-config: "§b久岐忍说：§a配置重载完成。这次没出岔子。"
+  add-ban: "§b久岐忍说：§a{player} 封禁 {days}。理由：{reason}。单据开好了，照办。"
+  remove-ban: "§b久岐忍说：§a{player} 解封。手续齐全，可以走了。"
+  add-mute: "§b久岐忍说：§a{player} 禁言。理由：{reason}。耳朵终于清静了。"
+  remove-mute: "§b久岐忍说：§a{player} 禁言解除。说正事就行。"
+  add-ban-ip: "§b久岐忍说：§aIP {ip} 封禁 {days}。理由：{reason}。一次处理干净，省得反复。"
+  remove-ban-ip: "§b久岐忍说：§aIP {ip} 解封。记录已更新。"
+  add-warn: "§b久岐忍说：§a{player}，因 §6{reason} §a记一次警告。流程写在那儿，别装作没看见。"
+  remove-warn: "§b久岐忍说：§a{player} 的警告撤销了。这次算了。"
+  mute-command-blocked: "§c禁言期间指令不可用。这是常识。"
+  warn-offline: "§b久岐忍说：§a{player} 不在。理由：{reason}。记录照记，等他上线再说。"
+  pending-warnings-notice: "§b久岐忍说：§e你还有 {count} 条警告没清。别等它变成封禁才着急。"
+  expiry-reminder: "§b久岐忍说：§e{target} 的{type}还剩 {remaining}。到点自动解除，不用催。"
+  escalated-ban: "§b久岐忍说：§e第 {count} 次了。按既定流程，封禁自动升级为 {duration}。流程是早就写好的。"
+  alts-result: "§b久岐忍说：§a查完了。{player} 名下 {count} 个同 IP 账号。小号这招一点都不新鲜。"
+  no-alts: "§b久岐忍说：§a{player} 名下没有同 IP 账号。这次倒是老实。"
+  on-report-ban: "§b久岐忍说：§a举报核实，{player} 封禁 {duration}。流程走完，结案。"
+  export-result: "§b久岐忍说：§a{count} 条审计记录已导出。归档完毕。"
+  sync-status: "§b久岐忍说：§e跨服同步状态：{detail}。总得有人盯着这些。"
+  immunity-denied: "§b久岐忍说：§c{target} 权限高于你。这个流程走不通，别白费力气。"
+  rollback-preview: "§b久岐忍说：§e查到 {actor} 在 {time} 留有 {count} 条可撤销记录。要撤吗？"
+  rollback-result: "§b久岐忍说：§a撤销完成。匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b久岐忍说：§e那段时间 {actor} 没有可撤销的记录。白查一遍。"
+  history-empty: "§b久岐忍说：§a{player} 的档案是空的。老实说，这挺难得的。"
+  history-header: "§b久岐忍说：§a记录如下——"
+  history-entry-format: "{entry}"
+  history-footer: "§b久岐忍说：§7看完了。希望不用再写第二页。"
+  verify-result-valid: "§b久岐忍说：§a校验通过，{count} 条记录完整。账目对得上。"
+  verify-result-invalid: "§b久岐忍说：§c对不上账。{count} 条记录被改过，必须查到底。"

@@ -1,0 +1,108 @@
+# ============================================================
+# YunJin 角色风格模型
+# ============================================================
+name: "YunJin"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 云堇风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁。这台戏，该落幕了。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁。锣鼓再起，请他登台。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址。整座戏楼暂闭。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家。台上不宜杂言。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言。开口吧，念白须清。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，规矩早已立好）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出捣乱的玩家。送客——"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态。请容我查一查戏册。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录。这一本流水，尽在其中。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3若见搅局之人，请告于我，自有分说。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志。一笔一划，俱是留痕。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号。同门同源，瞒不过去。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志。装册封存，以备考据。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性。若有涂改，一望便知。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态。各台同唱，方能成戏。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作。此折重排，去芜存菁。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型。本月压轴，花落谁家。"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单。戏册在此，请过目。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数。当众宣告，明明白白。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播。开关由君，悉听尊便。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置。曲终重奏，再起一折。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报。是非曲直，我自会断。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。待理之事，尚有余多。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。我亲往一观。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限。改弦更张，从长计议。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 云堇 YunJin"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d云堇的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被云堇请下了台
+
+    §7原因: §f{reason}
+
+    §d台有台规。待你守得住规矩，再来登台。
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 云堇说：§a{player} §e已送下场去。
+    §b原因: §f{reason}
+    §b无规矩，不成戏。§b(◕‿◕✿)
+  toggle-broadcast: "§b云堇说：§a自动广播已 {enabled}。开场与收场，皆有其时。"
+  reload-config: "§b云堇说：§a配置重载完毕。曲谱已正，可以开唱了。"
+  add-ban: "§b云堇说：§a{player} 封禁 {days}。缘故是：{reason}。这一折，暂且收了吧。"
+  remove-ban: "§b云堇说：§a{player} 的封禁已解。锣鼓再起，请他登台。"
+  add-mute: "§b云堇说：§a{player} 已被禁言。缘故是：{reason}。台上不宜杂言，且静一静。"
+  remove-mute: "§b云堇说：§a{player} 的禁言已解。开口无妨，只是念白须清。"
+  add-ban-ip: "§b云堇说：§aIP {ip} 封禁 {days}。缘故是：{reason}。整座戏楼，暂闭一日。"
+  remove-ban-ip: "§b云堇说：§aIP {ip} 已解封。戏楼重开，请入座。"
+  add-warn: "§b云堇说：§a{player}，因 §6{reason} §a记下一次警告。规矩早已立好，还望记在心上。"
+  remove-warn: "§b云堇说：§a{player} 的警告已撤。这一笔，我且抹去。"
+  mute-command-blocked: "§b云堇说：§c禁言在身，此令暂不可用。且待片刻。"
+  warn-offline: "§b云堇说：§a{player} 虽不在场，缘故是：{reason}。然账簿记得分明，待他归来，自有分说。"
+  pending-warnings-notice: "§b云堇说：§e你身上尚余 {count} 条警告未了。莫等它成了封禁，才知后悔。"
+  expiry-reminder: "§b云堇说：§e提醒一句：{target} 的{type}，只余 {remaining}。时日一到，自然了结。"
+  escalated-ban: "§b云堇说：§e{player} 已是第 {count} 次。依着旧例，封禁自动升至 {duration}。戏有戏规，人有人的规矩。"
+  alts-result: "§b云堇说：§a查得明白，{player} 名下共有 {count} 个同源账号。同门同源，终究瞒不过去。"
+  no-alts: "§b云堇说：§a{player} 名下并无同源账号。清清白白，很好。"
+  on-report-ban: "§b云堇说：§a举报已实，{player} 封禁 {duration}。谢谢你肯站出来说这一句。"
+  export-result: "§b云堇说：§a审计日志已导出，共 {count} 条。装册封存，以备考据。"
+  sync-status: "§b云堇说：§e跨服同步状态：{detail}。各台同唱一调，方成好戏。"
+  immunity-denied: "§b云堇说：§c{target} 之位在你之上。这一出，不归你我来唱。"
+  rollback-preview: "§b云堇说：§e查得了——{actor} 于 {time} 留下 {count} 折可重排的记录。可要重排？"
+  rollback-result: "§b云堇说：§a此折已重排。匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b云堇说：§e那段时间里，{actor} 未曾留下可以重排的记录。"
+  history-empty: "§b云堇说：§a{player} 的戏册还是空白的。至今为止，倒也规矩。"
+  history-header: "§b云堇说：§a戏册在此，请过目——"
+  history-entry-format: "{entry}"
+  history-footer: "§b云堇说：§7看罢，且记在心上。往后不必再添新页了。"
+  verify-result-valid: "§b云堇说：§a校验已过，{count} 条记录完好，一字未改。"
+  verify-result-invalid: "§b云堇说：§c校验未过。{count} 条记录被人涂改，此事不可轻放。"

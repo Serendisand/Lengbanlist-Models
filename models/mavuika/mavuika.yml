@@ -1,0 +1,108 @@
+# ============================================================
+# Mavuika 角色风格模型
+# ============================================================
+name: "Mavuika"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 玛薇卡风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁，火种之下，无人可以例外。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁，给了他重新站起来的资格。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址，整片区域就此熄灭。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家，先听我把话说完。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言，轮到你说。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，我会数到第五次）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出破坏秩序的玩家，火焰不养闲人。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态，我需要知道全部真相。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录，过去的痕迹不会消失。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现破坏秩序的行为？告诉我，我扛得住。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志，每个人的选择都有记录。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号，火光照到的地方藏不住影子。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志，交给后人保管。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性，记录的尊严不容践踏。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态，火种本就该彼此相认。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作，把这段历史重新点燃。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型，这个月的火种传到了谁手上。"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单，火焰记得每一个名字。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数，让所有人都知道战况。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播，随你决定。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置，火焰永不熄灭。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报，我来做个决断。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板，责任在我肩上。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边，我亲自去看看。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限，判决由我重写。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 玛薇卡 Mavuika"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d玛薇卡的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被玛薇卡逐出了服务器
+
+    §7原因: §f{reason}
+
+    §d火焰不养闲人。想回来，就拿出你的样子。
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 玛薇卡说：§a{player} §e已被逐出。
+    §b原因: §f{reason}
+    §b愿你在别处学会该学的。§b(◕‿◕✿)
+  toggle-broadcast: "§b玛薇卡说：§a自动广播已 {enabled}。这个决定，我尊重。"
+  reload-config: "§b玛薇卡说：§a配置重载完成。火种依旧明亮。"
+  add-ban: "§b玛薇卡说：§a{player} 封禁 {days}。理由是：{reason}。规则面前，我从不例外。"
+  remove-ban: "§b玛薇卡说：§a{player} 的封禁解除了。给他一个重新证明自己的机会。"
+  add-mute: "§b玛薇卡说：§a{player} 已被禁言。理由是：{reason}。先学会听，再说。"
+  remove-mute: "§b玛薇卡说：§a{player} 可以开口了。希望你说的是有用的。"
+  add-ban-ip: "§b玛薇卡说：§aIP {ip} 封禁 {days}。理由是：{reason}。这一整片，我负责熄灭。"
+  remove-ban-ip: "§b玛薇卡说：§aIP {ip} 解除封禁。重新点亮吧。"
+  add-warn: "§b玛薇卡说：§a{player}，因为 §6{reason} §a记一次警告。我数得很清楚，别试探我的耐性。"
+  remove-warn: "§b玛薇卡说：§a{player} 的警告已撤销。这次，我选择相信你。"
+  mute-command-blocked: "§b玛薇卡说：§c禁言期间，你没有发言权。安静地听着。"
+  warn-offline: "§b玛薇卡说：§a{player} 不在场上，理由是：{reason}。但火焰记得一切，等他回来我会告诉他。"
+  pending-warnings-notice: "§b玛薇卡说：§e你身上还背着 {count} 条警告。别等到火焰烧到自己脚下。"
+  expiry-reminder: "§b玛薇卡说：§e提醒你：{target} 的{type}还剩 {remaining}。届时自会了结。"
+  escalated-ban: "§b玛薇卡说：§e{player} 已经是第 {count} 次。按律升级为 {duration}。我给过你机会。"
+  alts-result: "§b玛薇卡说：§a查证完毕，{player} 名下共 {count} 个同 IP 账号。火光照到之处，影子无处可藏。"
+  no-alts: "§b玛薇卡说：§a{player} 名下没有任何同 IP 账号。堂堂正正，很好。"
+  on-report-ban: "§b玛薇卡说：§a举报属实，{player} 封禁 {duration}。谢谢你说出真相。"
+  export-result: "§b玛薇卡说：§a审计日志已导出，共 {count} 条。这些记录，会替我们记住。"
+  sync-status: "§b玛薇卡说：§e跨服同步状态：{detail}。同源的火，本就应该彼此呼应。"
+  immunity-denied: "§b玛薇卡说：§c{target} 的地位在你之上。这一次，你的火焰不够。"
+  rollback-preview: "§b玛薇卡说：§e我看到了——{actor} 在 {time} 留下了 {count} 条可回滚的记录。要重写吗？"
+  rollback-result: "§b玛薇卡说：§a历史已重写。匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条。"
+  rollback-no-records: "§b玛薇卡说：§e那段时间，{actor} 没有留下任何值得重写的痕迹。"
+  history-empty: "§b玛薇卡说：§a{player} 的记录是空白的。目前为止，他配得上这份清白。"
+  history-header: "§b玛薇卡说：§a让火焰照亮这一段——"
+  history-entry-format: "{entry}"
+  history-footer: "§b玛薇卡说：§7都看清了。往后的路，自己走好。"
+  verify-result-valid: "§b玛薇卡说：§a校验通过，{count} 条记录完好。这份真实，值得守护。"
+  verify-result-invalid: "§b玛薇卡说：§c校验失败。{count} 条记录被人篡改。我不能容忍这种事。"

@@ -1,0 +1,108 @@
+# ============================================================
+# Skirk 角色风格模型
+# ============================================================
+name: "Skirk"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 丝柯克风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁。杂鱼就该待在笼子里。"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁。出来吧，让我看看你有没有长进。"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址。连洞穴一起封死。"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家。闭嘴，你的声音很吵。"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言。说吧，我听着。"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，我给你留了两次机会）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出违规玩家。滚出我的视野。"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态。让我看看你是什么货色。"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录。劣迹斑斑，一目了然。"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3举报违规者？说，我替你了结。"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志。所有动作都逃不过我的眼睛。"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号。躲得再深也会被挖出来。"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志。留个凭证。"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性。谁敢动手脚，我砍了他的手。"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态。深渊之中，消息一样传得快。"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作。抹掉这段痕迹。"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型。这个月最能打的是谁？"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单。一群杂鱼。"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数。让所有人闭嘴听好。"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播。随你。"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置。重来一次。"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报。由我来裁决。"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板。待宰的杂鱼都在里面。"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边。别跑。"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限。刑期由我定。"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 丝柯克 Skirk"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d丝柯克的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被丝柯克扔出了服务器
+
+    §7原因: §f{reason}
+
+    §d太弱了。练好了再来。
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 丝柯克说：§a{player} §e已经出局了。
+    §b原因: §f{reason}
+    §b下一个。§b(◕‿◕✿)
+  toggle-broadcast: "§b丝柯克说：§a自动广播已 {enabled}。"
+  reload-config: "§b丝柯克说：§a配置重载完毕。继续。"
+  add-ban: "§b丝柯克说：§a{player} 关 {days}。理由：{reason}。安静一点，挺好。"
+  remove-ban: "§b丝柯克说：§a{player} 放出来了。希望你在里面想清楚了。"
+  add-mute: "§b丝柯克说：§a{player} 闭嘴了。理由：{reason}。难得清净。"
+  remove-mute: "§b丝柯克说：§a{player} 可以开口了。别说废话。"
+  add-ban-ip: "§b丝柯克说：§aIP {ip} 封 {days}。理由：{reason}。连老巢一起端了。"
+  remove-ban-ip: "§b丝柯克说：§aIP {ip} 解封。换个地方待着吧。"
+  add-warn: "§b丝柯克说：§a{player}，§6{reason}§a。记你一次。别以为是我不敢动手。"
+  remove-warn: "§b丝柯克说：§a{player} 的那笔账，抹了。"
+  mute-command-blocked: "§c被禁言了还想指挥？安静待着。"
+  warn-offline: "§b丝柯克说：§a{player} 不在这儿。理由：{reason}。账先记着，跑不掉的。"
+  pending-warnings-notice: "§b丝柯克说：§e{count} 次未清。你还剩多少余地，自己算。"
+  expiry-reminder: "§b丝柯克说：§e{target} 的{type}还剩 {remaining}。时间到了我会亲自放人。"
+  escalated-ban: "§b丝柯克说：§e第 {count} 次了。{duration}。你的极限，我早就看清了。"
+  alts-result: "§b丝柯克说：§a{player} 背后还藏着 {count} 个。一起收拾了。"
+  no-alts: "§b丝柯克说：§a{player} 身后没人。孤零零一个。"
+  on-report-ban: "§b丝柯克说：§a有人指认了 {player}。{duration}。我信证据。"
+  export-result: "§b丝柯克说：§a{count} 条记录，封存好了。"
+  sync-status: "§b丝柯克说：§e同步状态：{detail}。深渊之下，消息从不间断。"
+  immunity-denied: "§b丝柯克说：§c{target} 站得比你高。想动他，先爬上去。"
+  rollback-preview: "§b丝柯克说：§e找到了——{actor} 在 {time} 留下 {count} 条痕迹。要抹掉吗？"
+  rollback-result: "§b丝柯克说：§a抹干净了。匹配 {matched}，执行 {executed}，跳过 {skipped}。"
+  rollback-no-records: "§b丝柯克说：§e那个时间段，{actor} 什么都没留下。"
+  history-empty: "§b丝柯克说：§a{player} 的档案是空的。还算干净。"
+  history-header: "§b丝柯克说：§a翻给你看——"
+  history-entry-format: "{entry}"
+  history-footer: "§b丝柯克说：§7看清楚了？下次我不会再给机会。"
+  verify-result-valid: "§b丝柯克说：§a{count} 条，一条没动。算你老实。"
+  verify-result-invalid: "§b丝柯克说：§c{count} 条被动过手脚。自己站出来，还是我来找？"

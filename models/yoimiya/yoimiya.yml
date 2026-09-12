@@ -1,0 +1,108 @@
+# ============================================================
+# Yoimiya 角色风格模型
+# ============================================================
+name: "Yoimiya"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 宵宫风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁！点了根引线，可惜炸的是他自己～"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁！火灭了，人回来了，真好～"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址！一整片天都给它熄了～"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家！先安静一下，烟花要听指挥哦～"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言！好啦，可以说话啦～"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，我可都数着哦）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出捣乱的玩家！送他一支冲天炮～"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态！让我看看是怎么回事～"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录！翻翻看，有没有旧账～"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现捣乱的家伙？快跟我说，我立马去瞧瞧！"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志！一笔一笔都记在小本本上啦～"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号！同一家铺子出来的，香味都一样～"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志！打包收好～"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性！谁动了手脚，一照就现形～"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态！消息传得比烟花还快哦～"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作！把这根引线重新接一遍～"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型！看看这个月最亮的是哪一朵～"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单！长长的一串，我数给你听～"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数！大声喊出来，让全城都听见～"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播！一拉就亮，一推就灭～"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置！重新点一次火～"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报！交给我，我办事可利索啦～"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板！还有好几件事没处理呢～"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边！等我一下下～"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限！改个日子，容易～"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 宵宫 Yoimiya"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d宵宫的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被宵宫送出服务器啦！
+
+    §7原因: §f{reason}
+
+    §d今晚的烟花看不到咯，下次要守规矩哦~
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 宵宫说：§a{player} §e已经被送出去啦！
+    §b原因: §f{reason}
+    §b记得回来看烟花哦！§b(◕‿◕✿)
+  toggle-broadcast: "§b宵宫说：§a自动广播已经 {enabled} 啦！想听就开着嘛～"
+  reload-config: "§b宵宫说：§a配置重新加载好了！火种又旺起来咯～"
+  add-ban: "§b宵宫说：§a{player} 被封禁 {days} 啦！原因是：{reason}。哎，引线点歪了呀～"
+  remove-ban: "§b宵宫说：§a{player} 解封咯！欢迎回来，烟花还给你留着呢～"
+  add-mute: "§b宵宫说：§a{player} 被禁言了，原因是：{reason}。先安静一下下，好不好～"
+  remove-mute: "§b宵宫说：§a{player} 可以说话啦！来，继续讲～"
+  add-ban-ip: "§b宵宫说：§aIP {ip} 被封 {days} 啦！原因是：{reason}。这一整片天都黑下来咯～"
+  remove-ban-ip: "§b宵宫说：§aIP {ip} 解封！天又亮啦～"
+  add-warn: "§b宵宫说：§a{player} 因为 §6{reason} §a被记了一次！我可都数着呢，别想蒙混过关～"
+  remove-warn: "§b宵宫说：§a{player} 的警告消掉啦！那这次就翻篇咯～"
+  mute-command-blocked: "§b宵宫说：§c禁言的时候这个用不了哦！别急，一会儿就好～"
+  warn-offline: "§b宵宫说：§a{player} 现在不在，原因是：{reason}。不过我记得清清楚楚，等他回来告诉他～"
+  pending-warnings-notice: "§b宵宫说：§e你还欠着 {count} 条警告没清呢！快点处理掉，不然越积越多～"
+  expiry-reminder: "§b宵宫说：§e提醒你一下！{target} 的{type}只剩 {remaining} 啦，到时间自动解除～"
+  escalated-ban: "§b宵宫说：§e{player} 已经第 {count} 次了！按规矩自动升到 {duration}，我真的提醒过啦～"
+  alts-result: "§b宵宫说：§a查到咯！{player} 有 {count} 个同 IP 的账号，同一家铺子出来的，瞒不掉～"
+  no-alts: "§b宵宫说：§a{player} 名下没有同 IP 账号哦！干干净净的～"
+  on-report-ban: "§b宵宫说：§a举报核实啦！{player} 封禁 {duration}。谢谢你告诉我～"
+  export-result: "§b宵宫说：§a审计日志导出好啦，一共 {count} 条！打包完成～"
+  sync-status: "§b宵宫说：§e跨服同步状态：{detail}。消息跑得比烟花还快哦～"
+  immunity-denied: "§b宵宫说：§c{target} 的权限比你高啦！这个我动不了，换个人来试试吧～"
+  rollback-preview: "§b宵宫说：§e找到啦——{actor} 在 {time} 留下 {count} 条可以重来的记录！要重来吗？"
+  rollback-result: "§b宵宫说：§a接好啦！匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条～"
+  rollback-no-records: "§b宵宫说：§e那段时间 {actor} 什么都没留下，白跑一趟咯～"
+  history-empty: "§b宵宫说：§a{player} 的记录本一页都没写过呢！太棒啦～"
+  history-header: "§b宵宫说：§a我来翻翻看——"
+  history-entry-format: "{entry}"
+  history-footer: "§b宵宫说：§7看完啦！以后别让我再记新的了，好不好嘛～"
+  verify-result-valid: "§b宵宫说：§a{count} 条全都对得上！一点都没被动过～太好了！"
+  verify-result-invalid: "§b宵宫说：§c不妙！{count} 条里面有人动过手脚！我这就去找他～"

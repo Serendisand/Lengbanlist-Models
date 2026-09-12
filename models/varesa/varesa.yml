@@ -1,0 +1,108 @@
+# ============================================================
+# Varesa 角色风格模型
+# ============================================================
+name: "Varesa"
+version: "1.0.1"
+
+help:
+  - "§b╔══════════════════════════════════╗"
+  - "§b║ §2§oLengbanlist 帮助 - 瓦雷莎风格 §b║"
+  - "§b╠══════════════════════════════════╣"
+  - "§6§l◆ 处罚管理"
+  - "§2✦ §b/lban add <可选>-s <必填>玩家名 <必填>天数 <必填>原因 §7- §3添加封禁！放心，我出手从来不手软！"
+  - "§7  = §b/ban"
+  - "§2✦ §b/lban remove <必填>玩家名 §7- §3移除封禁！放你出来，下次可别再犯了！"
+  - "§7  = §b/unban"
+  - "§2✦ §b/ban-ip <可选>-s <必填>IP地址 <必填>天数 <必填>原因 §7- §3封禁 IP 地址！一整片全都给我歇着！"
+  - "§2✦ §b/lban mute <可选>-s <必填>玩家名 <必填>原因 §7- §3禁言玩家！先安静下来听我说！"
+  - "§7  = §b/mute"
+  - "§2✦ §b/lban unmute <可选>-s <必填>玩家名 §7- §3解除禁言！好了，你可以说话了！"
+  - "§7  = §b/unmute"
+  - "§2✦ §b/lban warn <必填>玩家名 <必填>原因 §7- §3警告玩家（4 次→14 日，5 次→永封，我可数得很准！）"
+  - "§7  = §b/warn"
+  - "§2✦ §b/lban unwarn <必填>玩家名 §7- §3移除玩家警告"
+  - "§7  = §b/unwarn"
+  - "§2✦ §b/kick <必填>玩家名 <可选>原因 §7- §3踢出捣乱的玩家！吃我一记！"
+  - "§6§l◆ 查询信息"
+  - "§2✦ §b/lban check <必填>玩家名/IP §7- §3检查封禁状态！让我看看是谁！"
+  - "§2✦ §b/lban history <必填>玩家名 §7- §3查看处罚记录！翻旧账我最在行啦！"
+  - "§7  = §b/history"
+  - "§2✦ §b/report <必填>玩家名 <必填>原因 §7- §3发现捣乱的？快告诉我！我马上冲过去！"
+  - "§2✦ §b/lban getip <可选>玩家名 §7- §3查询玩家 IP 地址"
+  - "§2✦ §b/lban audit <可选>操作人 §7- §3查看审计日志！一笔一笔，谁也赖不掉！"
+  - "§2✦ §b/lban alts <必填>玩家名 §7- §3查询同IP小号！藏起来的小号我一样揪得出来！"
+  - "§2✦ §b/lban audit export §7- §3导出审计日志！打包，收工！"
+  - "§2✦ §b/lban audit verify §7- §3校验审计完整性！谁敢动一下试试！"
+  - "§2✦ §b/lban sync §7- §3查看跨服同步状态！全服的消息我都收得到！"
+  - "§2✦ §b/lban rollback <操作人> <开始时间> <结束时间> <可选>操作类型 §7- §3回滚操作！把错的那段一把掀掉！"
+  - "§6§l◆ 模型管理"
+  - "§2✦ §b/lban model <必填>模型名称 §7- §3切换模型"
+  - "§2✦ §b/lban models refresh §7- §3从云端拉取角色风格模型"
+  - "§2✦ §b/lban models install <必填>ID §7- §3下载安装云端风格"
+  - "§2✦ §b/lban models pin <必填>ID §7- §3锁定本地风格(云端不覆盖)"
+  - "§2✦ §b/lban models unpin <必填>ID §7- §3解除锁定"
+  - "§2✦ §b/lban models list §7- §3查看本地与云端模型"
+  - "§2✦ §b/lban models install all §7- §3一键下载全部已上架模型"
+  - "§2✦ §b/lban models stats §7- §3查看本服安装统计(月度精选参考)"
+  - "§2✦ §b/lban models featured §7- §3查看本月精选模型！这个月谁最有人气？"
+  - "§6§l◆ 杂项"
+  - "§2✦ §b/lban list §7- §3查看封禁名单！名单挺长，一个一个数！"
+  - "§2✦ §b/lban list-mute §7- §3查看禁言列表"
+  - "§7  = §b/listmute"
+  - "§2✦ §b/lban a §7- §3广播封禁人数！让全服都听见！"
+  - "§2✦ §b/lban toggle §7- §3开关自动广播！啪一下就好！"
+  - "§2✦ §b/lban open §7- §3打开可视化操作界面"
+  - "§2✦ §b/lban reload §7- §3重新加载配置！刷新一下，精神百倍！"
+  - "§2✦ §b/lban info §7- §3查看插件信息"
+  - "§2✦ §b/lban handle <举报ID> <时间/auto/forever> [原因] §7- §3处理举报！交给我，一分钟搞定！"
+  - "§2✦ §b/lban admin §7- §3打开管理员举报面板！一堆事情等着我处理呢！"
+  - "§2✦ §b/lban tp <玩家名> §7- §3传送至该玩家身边！等我，马上到！"
+  - "§2✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修订封禁期限！改个数，简单！"
+  - "§b╚══════════════════════════════════╝"
+  - "§2♡ 当前版本: {version} §7| §b模型: 瓦雷莎 Varesa"
+
+messages:
+  get-kick-message: |-
+    §b╔══════════════════════════╗
+    §b║   §d瓦雷莎的驱逐通知  §b║
+    §b╠══════════════════════════╣
+    §d☠️ 你被瓦雷莎一拳送出了服务器！
+
+    §7原因: §f{reason}
+
+    §d先去冷静一下，回头再来较量！
+    §b╚══════════════════════════╝
+  on-kick-success: |-
+    §b✧ 瓦雷莎说：§a{player} §e已经被我请出去啦！
+    §b原因: §f{reason}
+    §b规则要记住哦！§b(◕‿◕✿)
+  toggle-broadcast: "§b瓦雷莎说：§a自动广播已经 {enabled}！想听就开着呗！"
+  reload-config: "§b瓦雷莎说：§a配置重新加载好了！状态满格！"
+  add-ban: "§b瓦雷莎说：§a{player} 被封 {days}！原因是：{reason}。别怪我，规则就是规则！"
+  remove-ban: "§b瓦雷莎说：§a{player} 解封啦！下次好好表现，我可看着呢！"
+  add-mute: "§b瓦雷莎说：§a{player} 被禁言了！原因是：{reason}。先安静听我说两句！"
+  remove-mute: "§b瓦雷莎说：§a{player} 可以说话了！别再乱讲了哦！"
+  add-ban-ip: "§b瓦雷莎说：§aIP {ip} 被封 {days}！原因是：{reason}。整条线都给我停！"
+  remove-ban-ip: "§b瓦雷莎说：§aIP {ip} 解封！通了通了！"
+  add-warn: "§b瓦雷莎说：§a{player}！因为 §6{reason} §a吃了一次警告！我可给你数着呢！"
+  remove-warn: "§b瓦雷莎说：§a{player} 的警告记录消掉了！这次就算了！"
+  mute-command-blocked: "§b瓦雷莎说：§c禁言期间不能用这个啦！乖乖等着！"
+  warn-offline: "§b瓦雷莎说：§a{player} 人不在，原因是：{reason}。不过账我记下了，跑不掉的！"
+  pending-warnings-notice: "§b瓦雷莎说：§e你还欠 {count} 条警告没清呢！赶紧处理掉！"
+  expiry-reminder: "§b瓦雷莎说：§e提醒一下！{target} 的{type}只剩 {remaining} 了，时间到了就自动解除！"
+  escalated-ban: "§b瓦雷莎说：§e{player} 已经第 {count} 次了！按规矩直接升到 {duration}！我数得没错！"
+  alts-result: "§b瓦雷莎说：§a查出来啦！{player} 有 {count} 个同 IP 的账号！一个都跑不掉！"
+  no-alts: "§b瓦雷莎说：§a{player} 名下干净得很，一个同 IP 账号都没有！"
+  on-report-ban: "§b瓦雷莎说：§a举报核实了！{player} 封 {duration}！谢谢你告诉我！"
+  export-result: "§b瓦雷莎说：§a审计日志导出好啦，一共 {count} 条！装袋完成！"
+  sync-status: "§b瓦雷莎说：§e跨服同步状态：{detail}。全服的动静我都听得到！"
+  immunity-denied: "§b瓦雷莎说：§c{target} 的权限比你高！这个我动不了，换个人来吧！"
+  rollback-preview: "§b瓦雷莎说：§e找到啦——{actor} 在 {time} 留下 {count} 条可回滚的记录！要动手吗？"
+  rollback-result: "§b瓦雷莎说：§a搞定！匹配 {matched} 条，执行 {executed} 条，跳过 {skipped} 条！"
+  rollback-no-records: "§b瓦雷莎说：§e{actor} 那会儿什么也没留下，白跑一趟！"
+  history-empty: "§b瓦雷莎说：§a{player} 的记录本干干净净，一条都没有！厉害！"
+  history-header: "§b瓦雷莎说：§a我来翻翻——"
+  history-entry-format: "{entry}"
+  history-footer: "§b瓦雷莎说：§7看完了！以后继续保持，别再添新的啦！"
+  verify-result-valid: "§b瓦雷莎说：§a{count} 条全都对得上！没人动过！漂亮！"
+  verify-result-invalid: "§b瓦雷莎说：§c糟糕！{count} 条里面有人动过手脚！让我查出来是谁！"
