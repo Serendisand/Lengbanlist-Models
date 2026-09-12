@@ -126,6 +126,6 @@ models-cloud:
 
 ## License
 
-本仓库代码与配置: [MIT](LICENSE)
+本仓库代码与配置: [Attribution-NonCommercial-ShareAlike 4.0 International](LICENSE)
 
 模型内容 (YAML): 仅供游戏插件消息风格化使用,角色版权归原版权方所有。
