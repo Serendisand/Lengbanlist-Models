@@ -61,7 +61,7 @@ help:
   - "§e✦ §b/lban tp <玩家名> §7- §3传送到该玩家身边。"
   - "§e✦ §b/setban <玩家名/IP> <时间/forever> <理由> §7- §3修改封禁时间。"
   - "§c╚══════════════════════════════════╝"
-  - "§2♡ 当前版本: {version} §7| §b模型: 可莉 Klee
+  - "§2♡ 当前版本: {version} §7| §b模型: 可莉 Klee"
 
 messages:
   get-kick-message: |-
