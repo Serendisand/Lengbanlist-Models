@@ -15,6 +15,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: 轮换 featured
+        # 必须显式注入：脚本读 os.environ，secret 未映射进 env 时静默降级为顺序轮换
+        env:
+          STATS_API_URL: ${{ secrets.STATS_API_URL }}
         run: python3 .github/rotate_featured.py
 
       - name: 提交变更
