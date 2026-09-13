@@ -17,6 +17,8 @@ from pathlib import Path
 
 INDEX = Path(__file__).resolve().parent.parent / "index.json"
 STATS_API_URL = __import__("os").environ.get("STATS_API_URL", "").strip()
+# Cloudflare 把 urllib 默认的 "Python-urllib/3.x" 当自动化流量, 打到 *.workers.dev 直接 403
+UA = "Lengbanlist-Bot/1.0 (+https://github.com/Serendisand/Lengbanlist-Models)"
 
 
 def fetch_top_by_api(month: str):
@@ -24,8 +26,9 @@ def fetch_top_by_api(month: str):
     if not STATS_API_URL:
         return None
     url = STATS_API_URL + ("" if STATS_API_URL.endswith("?") or "?" in STATS_API_URL else "?") + "month=" + month
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
-        with urllib.request.urlopen(url, timeout=10) as resp:
+        with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         if isinstance(data, dict):
             if isinstance(data.get("top"), dict) and data["top"].get("model"):
