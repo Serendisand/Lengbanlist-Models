@@ -1,0 +1,6 @@
+.wrangler/
+node_modules/
+.dev.vars
+
+# 含 KV 命名空间 id（账号资源标识），只留本机，仓库里只放 wrangler.toml.example
+wrangler.toml

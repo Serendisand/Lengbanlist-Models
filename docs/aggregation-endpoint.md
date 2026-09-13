@@ -16,38 +16,48 @@
         └────────── 返回当月排行 top ◄─────────┘
 ```
 
-## 一、创建 Worker
+Worker 代码就在本仓库 `worker/`，部署时不需要另外复制粘贴：
 
-1. 注册 [Cloudflare](https://dash.cloudflare.com/sign-up)（免费）
-2. 安装 Node 后装工具：`npm i -g wrangler`
-3. 初始化并部署：
-```bash
-mkdir lengbanlist-stats && cd lengbanlist-stats
-wrangler init            # 选 TypeScript/JavaScript 均可，选"无 worker 模板"即可
-# 把本仓库 docs/stats-endpoint-worker.js 的内容覆盖到 src/index.js（或 .ts）
+```
+worker/
+├── wrangler.toml.example  ← 配置模板（Worker 名 / 入口 / KV 绑定），复制成 wrangler.toml 再填 id
+├── src/index.js           ← Worker 源码（唯一一份，改这里）
+└── smoke-test.mjs         ← 本地冒烟测试，无需登录 Cloudflare
 ```
 
-4. 创建 KV 命名空间（免费的）：
+> `wrangler.toml` 本身已 `.gitignore`（里面的 KV 命名空间 id 属于账号资源标识，不入公开仓库）。
+
+## 一、部署
+
+### 方式 A：命令行（wrangler，推荐）
+
 ```bash
+npm i -g wrangler        # 或全程用 npx wrangler
+wrangler login           # 浏览器里授权你的 Cloudflare 账号
+
+cd worker
+cp wrangler.toml.example wrangler.toml      # 本地配置，不入库
 wrangler kv namespace create STATS_KV
-# 输出里的 id 记下来
-```
+# 输出形如：id = "a1b2c3..."  → 填进 wrangler.toml 的 id 字段
 
-5. `wrangler.toml` 加绑定：
-```toml
-name = "lengbanlist-stats"
-main = "src/index.js"
-compatibility_date = "2024-01-01"
-
-[[kv_namespaces]]
-binding = "STATS_KV"
-id = "这里填上一步输出的 id"
-```
-
-6. 部署：
-```bash
 wrangler deploy
 # 输出形如 https://lengbanlist-stats.你的用户名.workers.dev
+```
+
+### 方式 B：纯网页（不用命令行）
+
+1. [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → 创建 Worker，名字填 `lengbanlist-stats`
+2. 编辑代码，把 `worker/src/index.js` 全文粘进去
+3. 在"存储与数据库 (KV)"里创建一个命名空间（名字随意，例如 `STATS_KV`）
+4. 回到 Worker → 设置 → 绑定 → 添加 KV 命名空间绑定：**变量名必须填 `STATS_KV`**，选中刚建的命名空间
+5. 部署，拿到 `https://lengbanlist-stats.xxx.workers.dev`
+
+> 变量名写错成别的（如 `KV`）不会报错，但每次上报都会返回 500 —— 请保持 `STATS_KV`。
+
+### 部署前自测（可选，不联网）
+
+```bash
+node worker/smoke-test.mjs     # 内存版 KV 跑全流程，13 项断言
 ```
 
 ## 二、两端配置
@@ -68,28 +78,45 @@ Name: STATS_API_URL
 Value: https://lengbanlist-stats.你的用户名.workers.dev
 ```
 
-> `rotate_featured.py` 已支持：自动读 `STATS_API_URL`，端点不可用时回退顺序轮换，
+> `.github/rotate_featured.py` 已支持：自动读 `STATS_API_URL`，端点不可用时回退顺序轮换，
 > 不影响任何功能。
 
 ## 三、自测
 
 ```bash
+# 探针：确认 Worker 活着
+curl https://你的域名.workers.dev
+# → {"ok":true,"service":"lengbanlist-stats"}
+
 # 模拟上报两条（不同 server 代表两台服务器都装了 hutao）
 curl -X POST https://你的域名.workers.dev -H 'content-type: application/json' \
      -d '{"server":"server-a","model":"hutao","version":"2.0.4"}'
 curl -X POST https://你的域名.workers.dev -H 'content-type: application/json' \
      -d '{"server":"server-b","model":"hutao","version":"2.0.4"}'
 
-# 查当月排行（应该返回 hutao 2 次）
+# 查当月排行（应该返回 hutao 2 次；重复上报同一 server 不会涨）
 curl "https://你的域名.workers.dev/?month=$(date +%Y-%m)"
 # → {"top":{"model":"hutao","count":2}}
+curl "https://你的域名.workers.dev/?month=$(date +%Y-%m)&verbose=1"
+# → {"top":{...},"models":{"hutao":2}}
 ```
+
+报文约定（与插件、`rotate_featured.py` 对齐）：
+
+| 请求 | 返回 |
+| --- | --- |
+| `POST /` body `{"server":"<uuid>","model":"hutao","version":"2.0.4"}` | `{"ok":true}`；`model` 只接受 `^[a-z0-9-]{1,32}$` |
+| `GET /?month=2026-08` | `{"top":{"model":"hutao","count":2}}`，无数据显示 `{"top":null}` |
+| `GET /?month=2026-08&verbose=1` | 额外带 `models` 完整排行 |
+| 其余 | `400 {"error":"..."}` |
 
 ## 四、防刷说明
 
 - 每台服务器（按自动生成的 server-id）**每月每模型只计一次**，重复安装不会刷数
+- 月份按 **UTC** 计，与 `rotate_featured.py` 的 `utcnow()` 对齐
 - KV key 3 个月自动过期，无需维护
-- Worker 代码在 `docs/stats-endpoint-worker.js`，可随意审查/自托管
+- 计数是"读改写"非原子：同一瞬间两台不同服务器上报同一模型，极小概率少计 1，月度评选场景可接受
+- Worker 代码在 `worker/src/index.js`，可随意审查/自托管
 
 ## 五、若不想用 Cloudflare
 
