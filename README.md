@@ -64,22 +64,45 @@ Lengbanlist 插件内置 `/lban models` 命令集:
 
 ## YAML 模型格式
 
-详见 [Lengbanlist docs/CustomModel 格式](https://github.com/Serendisand/Lengbanlist)。
+模型文本**支持继承**：插件内置一份全局默认 (`models/_base.yml`)，模型文件只写自己不一样的部分，
+没写的字段自动沿用全局默认。**插件新增命令/文案时，本仓库的模型不需要跟着改。**
 
-最小示例:
+最小示例 (只覆写想要的字段):
 
 ```yaml
-name: "YourModelName"        # 切换时用的标识
+name: "YourModelName"        # 切换时用的标识 (必填)
+version: "1.0.0"             # 版本号,index.json 由 CI 自动同步
 
-help:
-  - "§b帮助菜单第 1 行"
-  - "§b帮助菜单第 2 行"
+help-overrides:              # 可选:只改帮助菜单里想改的那几行
+  "#title": "§b║ §2§oLengbanlist 帮助 - 你的风格 §b║"   # 帮助框标题行
+  "#version": "§2♡ 当前版本: {version} §7| §b模型: 你的模型"
+  "lban freeze": "> 把人定住～"                          # 只换描述文字(最短写法)
+  "lban add": "§e✦ §b/lban add ... §7- §3整行替换,想改符号颜色时用"
 
-messages:
+messages:                    # 只写要改的键
   add-ban: "§c{player} 已被封禁 {days}!"
   remove-ban: "§a{player} 已解封"
-  # ... 更多键 (详见 Lengbanlist CustomModel.java)
+  # ... 更多键见 plugins/Lengbanlist/models/_base.yml
 ```
+
+`help-overrides` 的键有两种写法：
+
+键（两种）：
+
+| 写法 | 作用 |
+|------|------|
+| `"lban add"` / `"lban freeze"` / `"ban-ip"` / `"setban"` | 覆写该命令所在的那一行（按命令名匹配，取第一条命中的行） |
+| `"#top"` / `"#title"` / `"#split"` / `"#bottom"` / `"#version"` | 覆写帮助框的边框行、标题行、页脚行 |
+
+值（两种）：
+
+| 写法 | 作用 |
+|------|------|
+| `"> 描述文字"` | **只替换描述部分**，命令用法沿用全局默认 —— 推荐，最短 |
+| `"§e✦ §b/lban freeze ... §7- §3描述"` | 整行替换（想改前面的符号/颜色时才需要） |
+
+> 想整份帮助都自己写也可以：直接给 `help:` 一个完整列表（老写法仍然支持）。
+> 只是想微调几行的话，用 `help-overrides` 更省事，插件加新命令时你不用动。
 
 ---
 
@@ -100,7 +123,8 @@ messages:
 **审核标准**:
 - 角色风格一致,无敏感/争议内容
 - 颜色代码 + 占位符语法正确
-- 单模型不超过 15 KB
+- 只覆写必要字段 (`messages` 里不必重复全局默认的原话,`help-overrides` 只写要改的行)
+- 单模型不超过 12 KB
 
 ---
 
