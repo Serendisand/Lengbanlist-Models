@@ -2,7 +2,7 @@
 # Nahida 角色风格模型
 # ============================================================
 name: "Nahida"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -95,3 +95,14 @@ messages:
   history-footer: "§b纳西妲说：§7记忆不会责备任何人，但它会提醒我们做出更好的选择。"
   verify-result-valid: "§b纳西妲说：§a校验通过，{count} 条记录与世界树的记忆完全一致，一切安好。"
   verify-result-invalid: "§b纳西妲说：§c校验发现了问题，{count} 条记录与世界树的记忆对不上，像是被什么悄悄改动过。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6一切都记下了，可以开始了。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，世界树舒展叶脉中"
+  tip: "§6树梢上飘来一句话: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在查看新的枝叶"
+  shutdown: "§k§4夜色将至，正在收拾梦境..."
+  farewell: "§f愿下次醒来，我们仍在此相遇。"

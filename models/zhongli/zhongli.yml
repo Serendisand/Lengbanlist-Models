@@ -2,7 +2,7 @@
 # Zhongli 角色风格模型
 # ============================================================
 name: "Zhongli"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b钟离说：§7凡契约者，当以此为鉴。善守规则，方能长久。"
   verify-result-valid: "§b钟离说：§a审计哈希链校验无误，共 {count} 条，一毫不差。契约之重，在于诚信。"
   verify-result-invalid: "§b钟离说：§c审计日志竟遭篡改，共 {count} 条记录已现破绽！契约被毁，此乃大忌，务必彻查。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6契约已立，可安心托付。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，稍候片刻"
+  tip: "§6有一事相告: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在确认新版本"
+  shutdown: "§k§4收拾妥当，先行告退..."
+  farewell: "§f契约仍在，后会有期。"

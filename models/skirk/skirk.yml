@@ -2,7 +2,7 @@
 # Skirk 角色风格模型
 # ============================================================
 name: "Skirk"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b丝柯克说：§7看清楚了？下次我不会再给机会。"
   verify-result-valid: "§b丝柯克说：§a{count} 条，一条没动。算你老实。"
   verify-result-invalid: "§b丝柯克说：§c{count} 条被动过手脚。自己站出来，还是我来找？"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6准备完毕。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，等着"
+  tip: "§6顺口一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接上，%lengbanlist_*% 能用"
+  auto-update: "§a自动更新开着，正查版本"
+  shutdown: "§k§4收拾东西，走了..."
+  farewell: "§f就这样，下次见。"

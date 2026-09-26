@@ -2,7 +2,7 @@
 # Keqing 角色风格模型
 # ============================================================
 name: "Keqing"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -92,3 +92,14 @@ messages:
   history-footer: "§b刻晴说：§7查询完毕，希望此人不要再给玉衡星添乱！"
   verify-result-valid: "§b刻晴说：§a校验通过！共 {count} 条审计记录完整无损，效率与安全兼备！"
   verify-result-invalid: "§b刻晴说：§c校验失败！审计日志被动了手脚，共 {count} 条记录，必须立刻彻查！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6准备就绪，随时开工！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，效率第一，马上就好"
+  tip: "§6顺口一提: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 即刻可用"
+  auto-update: "§a自动更新已启用，正在核查新版本"
+  shutdown: "§k§4收工，正在整理手头的事务..."
+  farewell: "§f今日事今日毕，下次再会。"

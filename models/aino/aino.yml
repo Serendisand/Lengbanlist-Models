@@ -2,7 +2,7 @@
 # Aino 角色风格模型
 # ============================================================
 name: "Aino"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b爱诺说：§7记录看完了。接下来继续保持，别再添新条目啦～"
   verify-result-valid: "§b爱诺说：§a哈希链校验通过，{count} 条记录完好无损。这才是好工程！"
   verify-result-invalid: "§b爱诺说：§c校验失败了！{count} 条记录里有人动过手脚，必须马上查清楚！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6装置启动完毕，各项指标正常！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，先让我校准一下装置"
+  tip: "§6实验室的小道消息: §e{tip}"
+  placeholder-hook: "§a已接入 PlaceholderAPI，占位符接口调试通畅，%lengbanlist_*% 随时可用"
+  auto-update: "§a自动更新模块已上线，正在比对最新版本的数据..."
+  shutdown: "§k§4正在拆卸装置，零件都收好了..."
+  farewell: "§f实验告一段落，下次再一起调试吧！"

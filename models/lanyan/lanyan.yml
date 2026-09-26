@@ -2,7 +2,7 @@
 # LanYan 角色风格模型
 # ============================================================
 name: "LanYan"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b蓝砚说：§7都看完啦。往后别再添新的了，好不好？"
   verify-result-valid: "§b蓝砚说：§a校验通过了，{count} 条都好好的，一扣都没松。"
   verify-result-invalid: "§b蓝砚说：§c咦？{count} 条里有被拆动过的痕迹……是谁呀，得好好查查。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6线都接好了，可以开工。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，稍等，线还没理完"
+  tip: "§6悄悄说一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接上，%lengbanlist_*% 都能用"
+  auto-update: "§a自动更新开着，正在顺着线看看新版"
+  shutdown: "§k§4先把线收起来..."
+  farewell: "§f线收好了，下次再编。"

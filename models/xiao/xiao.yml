@@ -2,7 +2,7 @@
 # Xiao 角色风格模型
 # ============================================================
 name: "Xiao"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b魈说：§7这些业障我已记下。若再犯，我不会袖手旁观。"
   verify-result-valid: "§b魈说：§a校验通过，{count} 条记录完整无缺。"
   verify-result-invalid: "§b魈说：§c校验失败！检测到 {count} 条记录被篡改，有人动了手脚！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6我在，随时可以行动。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，稍候"
+  tip: "§6风声里传来一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在查看新版本"
+  shutdown: "§k§4先去收拾装备..."
+  farewell: "§f我在，随叫随到。"

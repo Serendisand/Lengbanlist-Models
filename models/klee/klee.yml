@@ -2,7 +2,7 @@
 # Klee 角色风格模型
 # ============================================================
 name: "Klee"
-version: "1.2.1"
+version: "1.2.2"
 
 # 帮助菜单里命令行的符号（不写则用全局默认 §2✦）
 help-bullet: "§e✦"
@@ -102,3 +102,14 @@ messages:
   history-footer: "§c可莉说：§7这些事情要告诉琴团长！下次不可以再犯啦！"
   verify-result-valid: "§c可莉说：§a校验通过！{count} 条记录都好好的，没有坏孩子动过！"
   verify-result-invalid: "§c可莉说：§6哎呀，有 {count} 条记录被篡改啦，可莉要告诉琴团长！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6可莉准备好啦，今天也要乖乖的！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，可莉马上就位！"
+  tip: "§6可莉告诉你一个小秘密: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接好啦，%lengbanlist_*% 可以用哦！"
+  auto-update: "§a自动更新开着呢，可莉去看看有没有新版本！"
+  shutdown: "§k§4可莉要回家啦，正在收拾炸弹..."
+  farewell: "§f可莉下次再来玩！"

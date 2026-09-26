@@ -2,7 +2,7 @@
 # Mualani 角色风格模型
 # ============================================================
 name: "Mualani"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b玛拉妮说：§7看完啦！以后别再让我添新页了哦～"
   verify-result-valid: "§b玛拉妮说：§a{count} 条全都对得上！一点都没被搅浑～"
   verify-result-invalid: "§b玛拉妮说：§c不好啦！{count} 条里面有人搅过水！得赶紧查查是谁～"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6冲浪板就位，随时出发～[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，玛拉妮马上冲上来啦～"
+  tip: "§6海浪里飘来一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接上啦，%lengbanlist_*% 都能用哦～"
+  auto-update: "§a自动更新开着，我去看看有没有新版本～"
+  shutdown: "§k§4要收摊啦，正在把板子拖上岸..."
+  farewell: "§f今天浪够啦，下次再见～"

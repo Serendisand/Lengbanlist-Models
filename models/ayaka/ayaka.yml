@@ -2,7 +2,7 @@
 # Ayaka 角色风格模型
 # ============================================================
 name: "Ayaka"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -90,3 +90,14 @@ messages:
   history-footer: "§b绫华说：§7望阁下以此为戒，优雅地遵守规则，方显贵族风范。"
   verify-result-valid: "§b绫华说：§a审计完整性校验通过，{count} 条记录完好无损。"
   verify-result-invalid: "§b绫华说：§c校验未通过，{count} 条记录疑似被篡改，还请您及时核查。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6已就绪，愿秩序常存。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，请稍候片刻"
+  tip: "§6有一事相告: §e{tip}"
+  placeholder-hook: "§a已接入 PlaceholderAPI，%lengbanlist_*% 占位符可用"
+  auto-update: "§a自动更新已启用，正在确认有无新版"
+  shutdown: "§k§4正在收拾行装，就此告退..."
+  farewell: "§f愿我们后会有期。"

@@ -2,7 +2,7 @@
 # Mavuika 角色风格模型
 # ============================================================
 name: "Mavuika"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b玛薇卡说：§7都看清了。往后的路，自己走好。"
   verify-result-valid: "§b玛薇卡说：§a校验通过，{count} 条记录完好。这份真实，值得守护。"
   verify-result-invalid: "§b玛薇卡说：§c校验失败。{count} 条记录被人篡改。我不能容忍这种事。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6火种已归位，随时可以点燃。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在点燃，稍待"
+  tip: "§6火焰里传来一句话: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在确认新版本"
+  shutdown: "§k§4火焰渐熄，正在收起余烬..."
+  farewell: "§f火种不灭，下次再燃。"

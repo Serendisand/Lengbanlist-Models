@@ -83,7 +83,30 @@ messages:                    # 只写要改的键
   add-ban: "§c{player} 已被封禁 {days}!"
   remove-ban: "§a{player} 已解封"
   # ... 更多键见 plugins/Lengbanlist/models/_base.yml
+
+console:                     # 可选:插件在服务端控制台说的话(启动/关闭横幅),也能带上人设
+  ready: "§bLengbanlist §6堂主到岗![]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载,堂主马上就来～"
+  tip: "§6堂主偷偷告诉你: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接上啦,%lengbanlist_*% 都能用～"
+  auto-update: "§a自动更新开着呢,堂主正在看看有没有新版～"
+  shutdown: "§k§4打烊啦,堂主正在收拾行李qwq..."
+  farewell: "§f往生堂今日打烊,下次再来哦～"
 ```
+
+`console` 段共有 7 个键，只写想改的即可，其余沿用 `models/_base.yml`（中文默认）：
+
+| 键 | 出现时机 | 占位符 |
+|------|------|------|
+| `ready` | 插件启用完成 | `{version}` 插件版本、`{model}` 模型名、`{server}` 服务端版本 |
+| `loading` | 开始启用时 | — |
+| `tip` | 启动后随机一句一言（前面会自动加上模型名） | `{tip}` |
+| `placeholder-hook` | 检测到 PlaceholderAPI 时 | — |
+| `auto-update` | 自动更新功能开启时 | — |
+| `shutdown` | 插件停用开始 | — |
+| `farewell` | 插件停用结束 | — |
+
+> 诊断类日志（数据库报错、跨服同步失败、webhook 重试等）不参与模型化，固定中文，便于排障。
 
 `help-overrides` 的键有两种写法：
 

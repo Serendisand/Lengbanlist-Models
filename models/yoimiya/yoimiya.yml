@@ -2,7 +2,7 @@
 # Yoimiya 角色风格模型
 # ============================================================
 name: "Yoimiya"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b宵宫说：§7看完啦！以后别让我再记新的了，好不好嘛～"
   verify-result-valid: "§b宵宫说：§a{count} 条全都对得上！一点都没被动过～太好了！"
   verify-result-invalid: "§b宵宫说：§c不妙！{count} 条里面有人动过手脚！我这就去找他～"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6引线点好了，烟花随时上天～[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，烟花马上就到～"
+  tip: "§6偷偷告诉你一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接好啦，%lengbanlist_*% 都能用～"
+  auto-update: "§a自动更新开着，我去看看有没有新版烟花～"
+  shutdown: "§k§4烟花放完啦，正在收拾火药..."
+  farewell: "§f今天的烟花到此为止，下次再一起玩～"

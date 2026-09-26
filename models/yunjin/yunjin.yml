@@ -2,7 +2,7 @@
 # YunJin 角色风格模型
 # ============================================================
 name: "YunJin"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b云堇说：§7看罢，且记在心上。往后不必再添新页了。"
   verify-result-valid: "§b云堇说：§a校验已过，{count} 条记录完好，一字未改。"
   verify-result-invalid: "§b云堇说：§c校验未过。{count} 条记录被人涂改，此事不可轻放。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6锣鼓已备，随时可以开台。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，稍候开场"
+  tip: "§6台侧听来一句: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在查看新剧目"
+  shutdown: "§k§4今日收台，正在收拾行头..."
+  farewell: "§f今日戏毕，改日再会。"

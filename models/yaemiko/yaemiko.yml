@@ -2,7 +2,7 @@
 # YaeMiko 角色风格模型
 # ============================================================
 name: "YaeMiko"
-version: "1.2.1"
+version: "1.2.2"
 
 # 帮助菜单里命令行的符号（不写则用全局默认 §2✦）
 help-bullet: "§5✦"
@@ -101,3 +101,14 @@ messages:
   history-footer: "§d八重神子说：§7呵呵，这些记录若写成小说，倒也挺有看头。"
   verify-result-valid: "§d八重神子说：§a审计哈希链校验完整，共 {count} 条。记录完好无损，省得我费心编排了。"
   verify-result-invalid: "§d八重神子说：§c哎呀，审计日志被人动了手脚呢！校验 {count} 条数据就发现了破绽。呵呵，敢在狐狸眼皮底下做小动作？"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6好戏开场，本宫看着呢。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，别急，好戏还在后头"
+  tip: "§6本宫听来的趣闻: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接上了，%lengbanlist_*% 随你用"
+  auto-update: "§a自动更新开着，本宫正要看看有什么新鲜事"
+  shutdown: "§k§4散场啦，本宫先撤了..."
+  farewell: "§f今日到此为止，期待下次的好戏。"

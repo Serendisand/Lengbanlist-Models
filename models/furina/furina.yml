@@ -2,7 +2,7 @@
 # Furina 角色风格模型
 # ============================================================
 name: "Furina"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -89,3 +89,14 @@ messages:
   history-footer: "§b芙宁娜说：§7审判结束！希望此人能改过自新，否则下次审判就不止于此了~"
   verify-result-valid: "§b芙宁娜说：§a审计哈希链完整无缺，共 {count} 条，本水神的账目滴水不漏！"
   verify-result-invalid: "§b芙宁娜说：§c竟有宵小胆敢篡改！审计日志已现破绽，共 {count} 条记录，本水神绝不轻饶！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6大幕拉开，演出开始！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在登场，灯光音响就位！"
+  tip: "§6本神明透露一点内幕: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 都能用了哦～"
+  auto-update: "§a自动更新已启动，本神明去看看有没有新剧本～"
+  shutdown: "§k§4落幕了，正在收拾舞台..."
+  farewell: "§f演出暂歇，期待下次再见！"

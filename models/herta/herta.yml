@@ -2,7 +2,7 @@
 # Herta 角色风格模型
 # ============================================================
 name: "Herta"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b黑塔说：§7调皮捣蛋可是要额外收费的~下次不许再犯哦！"
   verify-result-valid: "§b黑塔说：§a审计哈希链校验完整，共 {count} 条。没有异常，一切都在我的注视之下。"
   verify-result-invalid: "§b黑塔说：§c审计日志被篡改了！校验 {count} 条数据即发现异常。敢在天才的眼皮底下动手脚？"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6启动完成，数据一切正常。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，别催"
+  tip: "§6顺手告诉你: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 随便用"
+  auto-update: "§a自动更新开着，正在比对版本"
+  shutdown: "§k§4收拾东西，下班..."
+  farewell: "§f行了，下次再见。"

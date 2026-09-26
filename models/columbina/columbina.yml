@@ -2,7 +2,7 @@
 # Columbina 角色风格模型
 # ============================================================
 name: "Columbina"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b哥伦比娅说：§7一页一页都看完了哦。好好睡吧，别再做坏事啦～"
   verify-result-valid: "§b哥伦比娅说：§a{count} 条全都对得上呢，谁也没动过。真乖～"
   verify-result-invalid: "§b哥伦比娅说：§c{count} 条里有被人偷偷改过的痕迹哦…是谁呢？我会慢慢找出来的～"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6都安排好了，安心睡吧～[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在缓缓入梦，请不要吵醒它～"
+  tip: "§6悄悄话: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已经接上啦，%lengbanlist_*% 都能用哦～"
+  auto-update: "§a自动更新醒着呢，正在看看有没有新版本～"
+  shutdown: "§k§4该睡啦，先收拾一下梦境..."
+  farewell: "§f做个好梦，下次见哦～"

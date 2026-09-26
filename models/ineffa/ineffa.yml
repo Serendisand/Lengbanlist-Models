@@ -2,7 +2,7 @@
 # Ineffa 角色风格模型
 # ============================================================
 name: "Ineffa"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b伊涅芙说：§7档案调取完毕。以上为全部记录。"
   verify-result-valid: "§b伊涅芙说：§a哈希链比对通过，{count} 条记录完整。数据可信。"
   verify-result-invalid: "§b伊涅芙说：§c比对失败。{count} 条记录存在篡改痕迹。建议立即核查。"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6系统就绪，各模块运行正常。[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2启动中，正在加载核心模块"
+  tip: "§6附加信息: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接入完成，%lengbanlist_*% 可用"
+  auto-update: "§a自动更新已启用，正在检索版本信息"
+  shutdown: "§k§4系统关闭中，正在保存运行状态..."
+  farewell: "§f本次运行结束，期待下次启动。"

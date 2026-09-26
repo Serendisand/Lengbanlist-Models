@@ -2,7 +2,7 @@
 # HuTao 角色风格模型
 # ============================================================
 name: "HuTao"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -94,3 +94,14 @@ messages:
   history-footer: "§b胡桃说：§7看完了吧？记得遵纪守法哦，不然往生堂随时欢迎~"
   verify-result-valid: "§b胡桃说：§a审计哈希链校验完整哒，一共 {count} 条，一个都没动过~"
   verify-result-invalid: "§b胡桃说：§c糟了糟了！审计日志被动手脚哒！校验 {count} 条就发现了破绽，这可不行！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6堂主到岗，今日照常营业！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，堂主马上就来～"
+  tip: "§6堂主偷偷告诉你: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接上啦，%lengbanlist_*% 都能用～"
+  auto-update: "§a自动更新开着呢，堂主正在看看有没有新版～"
+  shutdown: "§k§4打烊啦，堂主正在收拾行李qwq..."
+  farewell: "§f往生堂今日打烊，下次再来哦～"

@@ -2,7 +2,7 @@
 # Kirara 角色风格模型
 # ============================================================
 name: "Kirara"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b绮良良说：§7都看完啦喵～以后别再让我记新的了哦！"
   verify-result-valid: "§b绮良良说：§a{count} 条全对得上喵！一个章都没被仿造～"
   verify-result-invalid: "§b绮良良说：§c糟糕喵！{count} 条里面有人动过手脚！绮良良这就去查！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6快递驿站开张啦，包裹都能送到喵～[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，绮良良马上出发喵～"
+  tip: "§6路上听来的消息喵: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 接上啦，%lengbanlist_*% 都能用喵～"
+  auto-update: "§a自动更新开着喵，正在看看有没有新包裹～"
+  shutdown: "§k§4今天不送啦，正在收拾包裹喵..."
+  farewell: "§f包裹送到这里，下次再见喵～"

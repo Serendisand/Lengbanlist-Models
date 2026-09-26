@@ -2,7 +2,7 @@
 # Varesa 角色风格模型
 # ============================================================
 name: "Varesa"
-version: "1.2.1"
+version: "1.2.2"
 
 # 只写和全局默认(models/_base.yml)不同的人设化行,其余命令自动沿用全局帮助
 # #title/#version 等 # 开头的是帮助框的标题行与页脚行
@@ -91,3 +91,14 @@ messages:
   history-footer: "§b瓦雷莎说：§7看完了！以后继续保持，别再添新的啦！"
   verify-result-valid: "§b瓦雷莎说：§a{count} 条全都对得上！没人动过！漂亮！"
   verify-result-invalid: "§b瓦雷莎说：§c糟糕！{count} 条里面有人动过手脚！让我查出来是谁！"
+
+# ---------- 控制台消息 ----------
+# 插件自己在服务端控制台说的话（启动/关闭横幅等）；没写在这里的键沿用 models/_base.yml
+console:
+  ready: "§bLengbanlist §6热身完毕，随时可以开始！[]~(￣▽￣)~* §7v{version} §7| §3模型 {model} §7| §3服务端 {server}"
+  loading: "§f原神§2正在加载，马上就好！"
+  tip: "§6顺便告诉你: §e{tip}"
+  placeholder-hook: "§aPlaceholderAPI 已接入，%lengbanlist_*% 随便用！"
+  auto-update: "§a自动更新已开启，我去看看有没有新版本！"
+  shutdown: "§k§4训练结束，正在收拾器材..."
+  farewell: "§f今天练到这儿，下次继续！"
