@@ -15,9 +15,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: 轮换 featured
-        # 必须显式注入：脚本读 os.environ，secret 未映射进 env 时静默降级为顺序轮换
+        # 数据来自 bStats REST API；不填 Variables 时默认 33262 / modelUsage
+        # 如需修改：Settings → Secrets and variables → Actions → Variables
         env:
-          STATS_API_URL: ${{ secrets.STATS_API_URL }}
+          BSTATS_PLUGIN_ID: ${{ vars.BSTATS_PLUGIN_ID }}
+          BSTATS_CHART_ID: ${{ vars.BSTATS_CHART_ID }}
         run: python3 .github/rotate_featured.py
 
       - name: 提交变更

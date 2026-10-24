@@ -18,8 +18,9 @@ These models are fan-made styling only — **NOT affiliated with miHoYo / HoYove
 
 ## 📊 月度精选自动评选
 
-搭建统计聚合端点即可让每月精选 = 上月被最多服务器采纳的模型（免费方案 + 完整代码）:
-[部署教程](docs/aggregation-endpoint.md)
+每月精选由 bStats 自动统计：插件通过自定义图表上报各服正在使用的模型，GitHub Action
+每月 1 号调用 bStats REST API，选出上月末被最多服务器使用的模型（零维护）:
+[配置教程](docs/aggregation-endpoint.md)
 
 ---
 
@@ -154,7 +155,8 @@ help-overrides:
 
 ## 月度精选 (Featured)
 
-`index.json` 的 `featured.month` 字段 (格式 `yyyy-MM`) 用于插件 GUI 顶部 banner 推荐本月模型。每月 1 号可手动更新为新的精选。
+`index.json` 的 `featured.month` 字段 (格式 `yyyy-MM`) 用于插件 GUI 顶部 banner 推荐本月模型。
+每月 1 号由 GitHub Action 按 bStats 使用统计自动更新；统计数据缺失时回退为顺序轮换。
 
 ---
 
