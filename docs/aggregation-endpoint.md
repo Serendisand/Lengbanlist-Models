@@ -3,7 +3,7 @@
 用于**自动评选每月精选**：插件通过 bStats 自定义图表上报当前使用的模型，
 模型仓库的轮换工作流每月 1 号调用 bStats 官方 REST API，选出被最多服务器使用的模型。
 
-> 以前的 Cloudflare Worker 聚合端点已不再参与评选；`worker/` 仅作历史参考保留。
+> 以前的 Cloudflare Worker 聚合端点已不再参与评选，相关代码已删除。
 > 官方文档：<https://bstats.org/docs/rest-api>
 
 ## 架构
@@ -93,11 +93,8 @@ curl -s https://bstats.org/api/v1/plugins/33262/charts/modelUsage/data
 - 并列时按模型 id 字典序取第一个，保证每次结果稳定
 - 只从 `index.json` 里已上架的模型中选择；`default` / `english` / 玩家自定义模型会被忽略
 
-## 六、旧方案（已停用）
+## 六、旧方案（已移除）
 
-`worker/` 是之前的 Cloudflare Worker 聚合端点，工作流不再读取 `STATS_API_URL`。
-如果确认不再需要，可以：
-
-1. 在 Cloudflare 删除 Worker 和 KV 命名空间
-2. 把插件 `config.yml` 里的 `models-cloud.stats.enabled` 设为 `false`
-   （或等后续版本移除该配置项）
+`worker/` 是之前的 Cloudflare Worker 聚合端点，已随迁移删除；工作流不再读取
+`STATS_API_URL`，插件侧的 `models-cloud.stats` 配置和自定义上报代码也已经移除。
+Cloudflare 上的 Worker 和 KV 可以自行删除。
